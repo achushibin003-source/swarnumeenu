@@ -456,7 +456,7 @@ body.loaded .curtain-center-text { opacity: 0; }
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero {
         height: auto;
         min-height: 100vh;
