@@ -147,8 +147,9 @@ body.loaded .curtain-center-text { opacity: 0; }
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     overflow: hidden;
+    background-color: var(--black);
 }
 
 .hero-img {
@@ -156,6 +157,7 @@ body.loaded .curtain-center-text { opacity: 0; }
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
 }
 
 .hero-pond {
@@ -466,9 +468,12 @@ body.loaded .curtain-center-text { opacity: 0; }
     .hero-bg-container {
         position: relative;
         height: auto;
+        min-height: 40vh;
         margin-bottom: 2rem;
+        z-index: 5;
     }
     .hero-img {
+        width: 100%;
         height: auto;
         object-fit: contain;
     }
