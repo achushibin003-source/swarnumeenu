@@ -45,21 +45,57 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // 4. PARALLAX SCROLLING FOR MURAL BORDERS
+    // 4. PARALLAX SCROLLING FOR    // Parallax Effect
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('[data-parallax]');
-
-        parallaxElements.forEach(el => {
-            const speed = 0.2;
-            const yPos = -(scrolled * speed);
-            // We apply it to the mural frame specifically if needed, 
-            // or just subtle shift to the whole section
-            const frame = el.querySelector('.mural-frame');
-            if (frame) {
-                frame.style.transform = `translateY(${yPos % 100}px)`;
-            }
+        document.querySelectorAll('[data-parallax]').forEach(el => {
+            const speed = 0.4;
+            el.style.backgroundPositionY = -(scrolled * speed) + 'px';
         });
+    });
+
+    // LIGHTBOX LOGIC
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    // Function to open lightbox
+    const openLightbox = (src) => {
+        lightboxImg.src = src;
+        lightbox.style.display = 'flex';
+        setTimeout(() => lightbox.classList.add('active'), 10);
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    };
+
+    // Close lightbox
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 400);
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Attach to all gallery and family images
+    document.addEventListener('click', (e) => {
+        // For background-image thumbnails
+        const mImg = e.target.closest('.m-img');
+        if (mImg) {
+            const style = window.getComputedStyle(mImg);
+            const url = style.backgroundImage.slice(5, -2).replace(/"/g, "");
+            openLightbox(url);
+            return;
+        }
+
+        // For direct <img> tags (like in the Family section)
+        if (e.target.tagName === 'IMG' && (e.target.closest('.f-full-item') || e.target.closest('.hero-bg-container'))) {
+            openLightbox(e.target.src);
+        }
     });
 
     // 5. MASONRY FILTERING (Optional enhancement)
