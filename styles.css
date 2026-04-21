@@ -538,3 +538,8 @@ body.loaded .curtain-center-text { opacity: 0; }
     .sec-hdr h2 { font-size: 2.5rem; }
     .mural-frame { display: none; }
 }
+
+.insta-link:hover {
+    transform: scale(1.2);
+    color: var(--cream);
+}
