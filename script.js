@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. LAZY LOADING & FADE-IN ANIMATIONS
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '300px' // Load photos well before they scroll into view
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -120,4 +120,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // 6. FALLING PETALS EFFECT
+    const petalContainer = document.getElementById('petal-container');
+    if (petalContainer) {
+        const petalCount = 30;
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            const size = Math.random() * 15 + 10 + 'px';
+            petal.style.width = size;
+            petal.style.height = size;
+            petal.style.left = Math.random() * 100 + 'vw';
+            
+            // Randomize animation properties
+            const duration = Math.random() * 7 + 5;
+            const delay = Math.random() * 10;
+            
+            petal.style.animation = `petal-fall ${duration}s linear ${delay}s infinite`;
+            
+            // Random initial rotation
+            petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            petalContainer.appendChild(petal);
+        }
+    }
 });

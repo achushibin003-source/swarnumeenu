@@ -60,6 +60,46 @@ body::before {
     z-index: 2;
 }
 
+/* PETAL EFFECT */
+.petal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.petal {
+    position: absolute;
+    background: var(--cream);
+    border-radius: 100% 0 100% 0;
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(0.5px);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    z-index: 15; /* Above background and pond, below main nav */
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translate(0, -10%) rotate(0deg) skew(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(150px, 110vh) rotate(540deg) skew(20deg);
+        opacity: 0;
+    }
+}
+
 /* KATHAKALI CURTAIN */
 .curtain-overlay {
     position: fixed;
@@ -512,31 +552,51 @@ body.loaded .curtain-center-text { opacity: 0; }
 /* RESPONSIVE */
 @media (max-width: 1024px) {
     .hero {
-        height: auto;
-        min-height: auto;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 4rem;
+        justify-content: center;
+        padding: 4rem 1rem;
     }
     .hero-bg-container {
-        position: relative;
-        height: auto;
-        margin-bottom: 0;
-        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
     }
     .hero-img {
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
     }
     .hero-title { 
-        font-size: 3.5rem; 
-        margin-top: 2rem;
+        font-size: 4rem; 
+        margin-top: 0;
     }
     .nav-links a { font-size: 2.5rem; }
     .sec-hdr h2 { font-size: 2.5rem; }
     .mural-frame { display: none; }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .masonry {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 1rem;
+    }
+    .m-item {
+        min-height: 350px;
+        grid-row: auto !important;
+        grid-column: auto !important;
+    }
+    .sec {
+        padding: 5rem 5%;
+    }
 }
 
 .insta-link:hover {
