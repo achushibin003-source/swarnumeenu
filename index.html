@@ -319,6 +319,10 @@
     </section>
 
 
+    <!-- PRIVATE PHOTOS SECTION -->
+    <div style="text-align: center; padding: 6rem 0 2rem; background: linear-gradient(to bottom, transparent, rgba(208, 28, 31, 0.05));">
+        <button id="private-photos-btn" style="background: #D01C1F; color: white; padding: 1.2rem 3rem; border: none; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; box-shadow: 0 10px 30px rgba(208, 28, 31, 0.2); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border: 1px solid rgba(255,255,255,0.1);">Private Photos</button>
+    </div>
 
     <footer style="padding: 5rem 5%; border-top: 1px solid rgba(212, 175, 55, 0.1); text-align: center; opacity: 0.8; font-size: 0.9rem;">
         <div style="margin-bottom: 1.5rem;">
@@ -330,6 +334,21 @@
         </div>
         <p style="letter-spacing: 3px; font-family: var(--font-sans); text-transform: uppercase; font-size: 0.65rem; opacity: 0.6;">Site created by <span style="color: var(--gold); font-weight: 600; opacity: 1;">achu</span></p>
     </footer>
+    <!-- PRIVATE ACCESS MODAL -->
+    <div id="private-modal" class="lightbox" style="z-index: 11000;">
+        <button id="private-close" class="lightbox-close">&times;</button>
+        <div class="lightbox-content" style="background: #0d0d0d; padding: 4rem 2rem; border: 1px solid rgba(208, 28, 31, 0.3); text-align: center; max-width: 450px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+            <div style="width: 50px; height: 1px; background: #D01C1F; margin: 0 auto 2rem;"></div>
+            <h2 style="color: #D01C1F; margin-bottom: 1rem; font-family: var(--font-serif); letter-spacing: 4px;">Private Access</h2>
+            <p style="margin-bottom: 2.5rem; opacity: 0.6; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Protected Collection</p>
+            
+            <input type="password" id="private-pass" placeholder="Enter Access Code" style="width: 100%; padding: 1.2rem; background: #151515; border: 1px solid rgba(255,255,255,0.05); color: white; margin-bottom: 1.5rem; border-radius: 2px; font-family: var(--font-sans); text-align: center; letter-spacing: 2px;">
+            
+            <button id="private-submit" style="background: #D01C1F; color: white; width: 100%; padding: 1.2rem; border: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: opacity 0.3s;">Unlock Collection</button>
+            
+            <p id="private-error" style="color: #D01C1F; font-size: 0.75rem; margin-top: 1.5rem; opacity: 0; transition: opacity 0.3s;">Incorrect access code. Please try again.</p>
+        </div>
+    </div>
 
     <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox">
