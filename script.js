@@ -37,14 +37,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const lightboxNav = document.querySelector('.lightbox-nav');
+
+    let currentImages = [];
+    let currentIndex = 0;
 
     // Function to open lightbox
-    const openLightbox = (src) => {
+    const openLightbox = (src, imagesList) => {
+        currentImages = imagesList || [src];
+        currentIndex = currentImages.indexOf(src);
+        if (currentIndex === -1) currentIndex = 0;
+
         lightboxImg.src = src;
         lightbox.style.display = 'flex';
+        
+        // Show/Hide navigation
+        if (currentImages.length > 1) {
+            lightboxNav.style.display = 'flex';
+        } else {
+            lightboxNav.style.display = 'none';
+        }
+
         setTimeout(() => lightbox.classList.add('active'), 10);
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden';
     };
+
+    const showNext = (e) => {
+        if (e) e.stopPropagation();
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = currentImages[currentIndex];
+            lightboxImg.style.opacity = '1';
+        }, 200);
+    };
+
+    const showPrev = (e) => {
+        if (e) e.stopPropagation();
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+            lightboxImg.src = currentImages[currentIndex];
+            lightboxImg.style.opacity = '1';
+        }, 200);
+    };
+
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
 
     // Close lightbox
     const closeLightbox = () => {
@@ -60,20 +101,45 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === lightbox) closeLightbox();
     });
 
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') closeLightbox();
+    });
+
     // Attach to all gallery and family images
     document.addEventListener('click', (e) => {
-        // For background-image thumbnails
+        // For background-image thumbnails (Masonry Gallery)
         const mImg = e.target.closest('.m-img');
         if (mImg) {
+            const allVisibleItems = Array.from(document.querySelectorAll('.m-item'))
+                .filter(item => item.style.display !== 'none');
+            
+            const allVisibleUrls = allVisibleItems.map(item => {
+                const img = item.querySelector('.m-img');
+                const style = window.getComputedStyle(img);
+                return style.backgroundImage.slice(5, -2).replace(/"/g, "");
+            });
+
             const style = window.getComputedStyle(mImg);
             const url = style.backgroundImage.slice(5, -2).replace(/"/g, "");
-            openLightbox(url);
+            openLightbox(url, allVisibleUrls);
             return;
         }
 
-        // For direct <img> tags (like in the Family section)
-        if (e.target.tagName === 'IMG' && (e.target.closest('.f-full-item') || e.target.closest('.hero-bg-container'))) {
-            openLightbox(e.target.src);
+        // For direct <img> tags (Family section)
+        const familyImg = e.target.closest('.f-full-item img');
+        if (familyImg) {
+            const allFamilyUrls = Array.from(document.querySelectorAll('.f-full-item img')).map(img => img.src);
+            openLightbox(familyImg.src, allFamilyUrls);
+            return;
+        }
+
+        // Hero image
+        if (e.target.tagName === 'IMG' && e.target.closest('.hero-bg-container')) {
+            openLightbox(e.target.src, [e.target.src]);
         }
     });
 
