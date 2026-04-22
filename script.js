@@ -130,6 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const privateBtn = document.getElementById('private-photos-btn');
     const privateModal = document.getElementById('private-modal');
     const privateClose = document.getElementById('private-close');
+    const privateSubmit = document.getElementById('private-submit');
+    const privatePass = document.getElementById('private-pass');
+    const privateError = document.getElementById('private-error');
 
     if (privateBtn) {
         privateBtn.addEventListener('click', () => {
@@ -143,12 +146,28 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 privateModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
+                privateError.style.opacity = '0';
+                privatePass.value = '';
             }, 400);
         };
 
         privateClose.addEventListener('click', closePrivate);
         privateModal.addEventListener('click', (e) => {
             if (e.target === privateModal) closePrivate();
+        });
+
+        privateSubmit.addEventListener('click', () => {
+            // Simple placeholder logic
+            if (privatePass.value === '2025') {
+                alert('Access Granted. This section is under construction.');
+                closePrivate();
+            } else {
+                privateError.style.opacity = '1';
+                privatePass.style.borderColor = '#D01C1F';
+                setTimeout(() => {
+                    privatePass.style.borderColor = 'rgba(255,255,255,0.05)';
+                }, 2000);
+            }
         });
     }
 });
