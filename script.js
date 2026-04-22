@@ -4,27 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('loaded');
     }, 1000);
 
-    // 2. NAVIGATION OVERLAY
-    const menuBtn = document.getElementById('hamburger-btn');
-    const navOverlay = document.getElementById('nav-overlay');
-    const navClose = document.getElementById('nav-close');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    const toggleNav = () => {
-        navOverlay.classList.toggle('active');
-        document.body.style.overflow = navOverlay.classList.contains('active') ? 'hidden' : '';
-    };
-
-    menuBtn.addEventListener('click', toggleNav);
-    navClose.addEventListener('click', toggleNav);
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            toggleNav();
-            // Smooth scroll handled by CSS/Browser default for simple href anchors
-        });
-    });
-
     // 3. LAZY LOADING & FADE-IN ANIMATIONS
     const observerOptions = {
         threshold: 0,
