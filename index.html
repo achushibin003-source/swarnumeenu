@@ -337,16 +337,15 @@
     <!-- PRIVATE ACCESS MODAL -->
     <div id="private-modal" class="lightbox" style="z-index: 11000;">
         <button id="private-close" class="lightbox-close">&times;</button>
-        <div class="lightbox-content" style="background: #0d0d0d; padding: 4rem 2rem; border: 1px solid rgba(208, 28, 31, 0.3); text-align: center; max-width: 450px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
-            <div style="width: 50px; height: 1px; background: #D01C1F; margin: 0 auto 2rem;"></div>
-            <h2 style="color: #D01C1F; margin-bottom: 1rem; font-family: var(--font-serif); letter-spacing: 4px;">Private Access</h2>
-            <p style="margin-bottom: 2.5rem; opacity: 0.6; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Protected Collection</p>
+        <div class="lightbox-content" style="background: #0d0d0d; padding: 3rem 1.5rem; border: 1px solid rgba(208, 28, 31, 0.3); text-align: center; max-width: 90%; width: 800px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); max-height: 85vh; overflow-y: auto;">
+            <div style="width: 50px; height: 1px; background: #D01C1F; margin: 0 auto 1.5rem;"></div>
+            <h2 style="color: #D01C1F; margin-bottom: 0.5rem; font-family: var(--font-serif); letter-spacing: 4px;">Additional Collection</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.6; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Extra Moments & Stock</p>
             
-            <input type="password" id="private-pass" placeholder="Enter Access Code" style="width: 100%; padding: 1.2rem; background: #151515; border: 1px solid rgba(255,255,255,0.05); color: white; margin-bottom: 1.5rem; border-radius: 2px; font-family: var(--font-sans); text-align: center; letter-spacing: 2px;">
-            
-            <button id="private-submit" style="background: #D01C1F; color: white; width: 100%; padding: 1.2rem; border: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: opacity 0.3s;">Unlock Collection</button>
-            
-            <p id="private-error" style="color: #D01C1F; font-size: 0.75rem; margin-top: 1.5rem; opacity: 0; transition: opacity 0.3s;">Incorrect access code. Please try again.</p>
+            <div id="private-gallery-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                <!-- Placeholder for additional photos -->
+                <p style="grid-column: 1/-1; opacity: 0.4; font-size: 0.8rem; padding: 2rem;">This collection is currently being populated...</p>
+            </div>
         </div>
     </div>
 
