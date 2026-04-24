@@ -61,8 +61,8 @@ body::before {
 }
 
 
-/* CINEMATIC GOLDEN PARTICLES & SPOTLIGHT */
-.particle-container {
+/* BLOOMING JASMINE & SACRED LIGHT THEME */
+.jasmine-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -73,50 +73,66 @@ body::before {
     z-index: 5;
 }
 
-.particle {
+.jasmine-flower {
     position: absolute;
-    background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(1px);
-    box-shadow: 0 0 10px var(--gold-glow);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    /* Star/Jasmine shape using clip-path */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    opacity: 0;
 }
 
-@keyframes float-particle {
-    0% { transform: translate(0, 0) scale(1); opacity: 0; }
-    20% { opacity: 0.6; }
-    80% { opacity: 0.6; }
-    100% { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 0; }
+@keyframes float-jasmine {
+    0% { transform: translate(0, 0) rotate(0deg) scale(0.5); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translate(var(--x), var(--y)) rotate(360deg) scale(1); opacity: 0; }
 }
 
-/* Spotlight Effect */
+/* Sacred Light Beam */
 .hero::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), transparent 0%, rgba(0,0,0,0.4) 100%);
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: conic-gradient(from 200deg at 50% 0%, transparent 0%, rgba(212, 175, 55, 0.15) 10%, transparent 20%);
     z-index: 3;
     pointer-events: none;
+    animation: sweepLight 15s infinite alternate ease-in-out;
 }
 
-/* Slow Zoom Hero */
+@keyframes sweepLight {
+    from { transform: rotate(-5deg); }
+    to { transform: rotate(5deg); }
+}
+
 .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.1);
-    transition: transform 20s linear;
+    transform: scale(1.05);
+    transition: transform 15s ease-out;
 }
 
 body.loaded .hero-img {
     transform: scale(1);
 }
 
-.hero-bg-container {
-    z-index: 1;
+/* Corner Mural Accents */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    z-index: 4;
+    pointer-events: none;
 }
 .intro-overlay {
     position: fixed;

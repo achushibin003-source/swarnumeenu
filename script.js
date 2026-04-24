@@ -15,59 +15,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 2. CINEMATIC PARTICLES & SPOTLIGHT
-    const particleContainer = document.getElementById('particle-container');
-    const hero = document.getElementById('hero');
+    // 2. BLOOMING JASMINE EFFECT
+    const jasmineContainer = document.getElementById('jasmine-container');
 
-    if (particleContainer) {
-        const particleCount = 40;
-        for (let i = 0; i < particleCount; i++) {
-            createParticle();
+    if (jasmineContainer) {
+        const jasmineCount = 15;
+        for (let i = 0; i < jasmineCount; i++) {
+            createJasmine();
         }
     }
 
-    function createParticle() {
-        const p = document.createElement('div');
-        p.className = 'particle';
+    function createJasmine() {
+        const j = document.createElement('div');
+        j.className = 'jasmine-flower';
         
-        const size = Math.random() * 4 + 1;
-        p.style.width = `${size}px`;
-        p.style.height = `${size}px`;
+        const size = Math.random() * 10 + 10;
+        j.style.width = `${size}px`;
+        j.style.height = `${size}px`;
         
-        resetParticle(p);
-        particleContainer.appendChild(p);
+        resetJasmine(j);
+        jasmineContainer.appendChild(j);
         
-        p.addEventListener('animationiteration', () => {
-            resetParticle(p);
+        j.addEventListener('animationiteration', () => {
+            resetJasmine(j);
         });
     }
 
-    function resetParticle(p) {
+    function resetJasmine(j) {
         const x = Math.random() * 100;
         const y = Math.random() * 100;
-        const duration = Math.random() * 10 + 10;
-        const delay = Math.random() * 5;
+        const duration = Math.random() * 15 + 15;
+        const delay = Math.random() * 10;
         
-        // Random drift destinations
-        const dx = (Math.random() - 0.5) * 200;
-        const dy = (Math.random() - 0.5) * 200;
+        const dx = (Math.random() - 0.5) * 300;
+        const dy = (Math.random() - 0.5) * 300;
         
-        p.style.left = `${x}%`;
-        p.style.top = `${y}%`;
-        p.style.setProperty('--x', `${dx}px`);
-        p.style.setProperty('--y', `${dy}px`);
-        p.style.animation = `float-particle ${duration}s ease-in-out ${delay}s infinite`;
-    }
-
-    // Dynamic Spotlight
-    if (hero) {
-        hero.addEventListener('mousemove', (e) => {
-            const rect = hero.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            hero.style.setProperty('--spotlight-x', `${x}%`);
-            hero.style.setProperty('--spotlight-y', `${y}%`);
-        });
+        j.style.left = `${x}%`;
+        j.style.top = `${y}%`;
+        j.style.setProperty('--x', `${dx}px`);
+        j.style.setProperty('--y', `${dy}px`);
+        j.style.animation = `float-jasmine ${duration}s ease-in-out ${delay}s infinite`;
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {
