@@ -15,47 +15,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 2. MINIMALIST TUMBLING PETAL EFFECT
-    const petalContainer = document.getElementById('petal-container');
+    // 2. CINEMATIC PARTICLES & SPOTLIGHT
+    const particleContainer = document.getElementById('particle-container');
+    const hero = document.getElementById('hero');
 
-    if (petalContainer) {
-        const petalCount = 3; // Minimalist: Only 3 petals at a time
-        for (let i = 0; i < petalCount; i++) {
-            createPetal(petalContainer);
+    if (particleContainer) {
+        const particleCount = 40;
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
         }
     }
 
-    function createPetal(container) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
+    function createParticle() {
+        const p = document.createElement('div');
+        p.className = 'particle';
         
-        const size = Math.random() * 20 + 25; // Large, intentional petals
-        petal.style.width = `${size}px`;
-        petal.style.height = `${size * 1.1}px`;
+        const size = Math.random() * 4 + 1;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
         
-        resetPetal(petal);
-        container.appendChild(petal);
+        resetParticle(p);
+        particleContainer.appendChild(p);
         
-        petal.addEventListener('animationiteration', () => {
-            resetPetal(petal);
+        p.addEventListener('animationiteration', () => {
+            resetParticle(p);
         });
     }
 
-    function resetPetal(petal) {
-        const left = Math.random() * 100;
-        const duration = Math.random() * 12 + 10; // Very slow and calm
-        const delay = Math.random() * 15; // Spaced out entrance
+    function resetParticle(p) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
         
-        const drift1 = (Math.random() - 0.5) * 200;
-        const drift2 = (Math.random() - 0.5) * 300;
-        const drift3 = (Math.random() - 0.5) * 400;
+        // Random drift destinations
+        const dx = (Math.random() - 0.5) * 200;
+        const dy = (Math.random() - 0.5) * 200;
         
-        petal.style.setProperty('--drift-1', `${drift1}px`);
-        petal.style.setProperty('--drift-2', `${drift2}px`);
-        petal.style.setProperty('--drift-3', `${drift3}px`);
-        
-        petal.style.left = `${left}%`;
-        petal.style.animation = `petal-tumble ${duration}s ease-in-out ${delay}s infinite`;
+        p.style.left = `${x}%`;
+        p.style.top = `${y}%`;
+        p.style.setProperty('--x', `${dx}px`);
+        p.style.setProperty('--y', `${dy}px`);
+        p.style.animation = `float-particle ${duration}s ease-in-out ${delay}s infinite`;
+    }
+
+    // Dynamic Spotlight
+    if (hero) {
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            hero.style.setProperty('--spotlight-x', `${x}%`);
+            hero.style.setProperty('--spotlight-y', `${y}%`);
+        });
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {

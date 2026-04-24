@@ -61,61 +61,58 @@ body::before {
 }
 
 
-/* MINIMALIST WHITE ROSE PETAL EFFECT */
-.petal-container {
+/* CINEMATIC GOLDEN PARTICLES & SPOTLIGHT */
+.particle-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
     overflow: hidden;
     pointer-events: none;
     z-index: 5;
-    perspective: 1200px;
 }
 
-.petal {
+.particle {
     position: absolute;
-    /* High-res White Rose Petal Look */
-    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fffafa 40%, #fdeff2 100%);
-    border-radius: 40% 60% 40% 60% / 50% 50% 50% 50%;
-    box-shadow: 
-        inset 0 0 10px rgba(255, 255, 255, 0.8),
-        2px 4px 12px rgba(0, 0, 0, 0.05);
-    filter: blur(0.3px);
-    opacity: 0;
+    background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+    box-shadow: 0 0 10px var(--gold-glow);
+}
+
+@keyframes float-particle {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 0; }
+}
+
+/* Spotlight Effect */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), transparent 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 3;
     pointer-events: none;
 }
 
-@keyframes petal-tumble {
-    0% {
-        transform: translate(0, -10vh) rotate(0deg) rotateX(0deg) rotateY(0deg);
-        opacity: 0;
-    }
-    15% {
-        opacity: 0.8;
-    }
-    /* Tumbling with upward drift */
-    30% {
-        transform: translate(var(--drift-1), 20vh) rotate(90deg) rotateX(120deg) rotateY(60deg);
-    }
-    45% {
-        /* Slight upward drift simulate air current */
-        transform: translate(var(--drift-2), 15vh) rotate(135deg) rotateX(180deg) rotateY(120deg);
-    }
-    65% {
-        transform: translate(var(--drift-1), 50vh) rotate(270deg) rotateX(240deg) rotateY(180deg);
-    }
-    85% {
-        /* Another slight catch in the wind */
-        transform: translate(var(--drift-2), 80vh) rotate(315deg) rotateX(300deg) rotateY(240deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(var(--drift-3), 110vh) rotate(360deg) rotateX(360deg) rotateY(360deg);
-        opacity: 0;
-    }
+/* Slow Zoom Hero */
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 20s linear;
+}
+
+body.loaded .hero-img {
+    transform: scale(1);
 }
 
 .hero-bg-container {
