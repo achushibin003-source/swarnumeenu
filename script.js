@@ -15,46 +15,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 2. BLOOMING JASMINE EFFECT
-    const jasmineContainer = document.getElementById('jasmine-container');
+    // 2. TRADITIONAL PETAL SHOWER EFFECT
+    const flowerContainer = document.getElementById('flower-container');
 
-    if (jasmineContainer) {
-        const jasmineCount = 15;
-        for (let i = 0; i < jasmineCount; i++) {
-            createJasmine();
+    if (flowerContainer) {
+        const petalCount = 40;
+        for (let i = 0; i < petalCount; i++) {
+            createPetal();
         }
     }
 
-    function createJasmine() {
-        const j = document.createElement('div');
-        j.className = 'jasmine-flower';
+    function createPetal() {
+        const p = document.createElement('div');
+        const types = ['red', 'yellow', 'white'];
+        const type = types[Math.floor(Math.random() * types.length)];
+        p.className = `petal ${type}`;
         
-        const size = Math.random() * 10 + 10;
-        j.style.width = `${size}px`;
-        j.style.height = `${size}px`;
+        const size = Math.random() * 15 + 10;
+        p.style.width = `${size}px`;
+        p.style.height = `${size * 1.2}px`;
         
-        resetJasmine(j);
-        jasmineContainer.appendChild(j);
+        resetPetal(p);
+        flowerContainer.appendChild(p);
         
-        j.addEventListener('animationiteration', () => {
-            resetJasmine(j);
+        p.addEventListener('animationiteration', () => {
+            resetPetal(p);
         });
     }
 
-    function resetJasmine(j) {
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 15 + 15;
+    function resetPetal(p) {
+        const left = Math.random() * 100;
+        const duration = Math.random() * 5 + 7;
         const delay = Math.random() * 10;
         
-        const dx = (Math.random() - 0.5) * 300;
-        const dy = (Math.random() - 0.5) * 300;
+        const x1 = (Math.random() - 0.5) * 150;
+        const x2 = (Math.random() - 0.5) * 200;
+        const x3 = (Math.random() - 0.5) * 300;
         
-        j.style.left = `${x}%`;
-        j.style.top = `${y}%`;
-        j.style.setProperty('--x', `${dx}px`);
-        j.style.setProperty('--y', `${dy}px`);
-        j.style.animation = `float-jasmine ${duration}s ease-in-out ${delay}s infinite`;
+        p.style.left = `${left}%`;
+        p.style.setProperty('--x1', `${x1}px`);
+        p.style.setProperty('--x2', `${x2}px`);
+        p.style.setProperty('--x3', `${x3}px`);
+        p.style.animation = `flutter-fall ${duration}s ease-in-out ${delay}s infinite`;
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {

@@ -61,8 +61,8 @@ body::before {
 }
 
 
-/* BLOOMING JASMINE & SACRED LIGHT THEME */
-.jasmine-container {
+/* TRADITIONAL MULTI-COLOR PETAL SHOWER */
+.flower-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -71,43 +71,35 @@ body::before {
     overflow: hidden;
     pointer-events: none;
     z-index: 5;
+    perspective: 1000px;
 }
 
-.jasmine-flower {
+.petal {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    /* Star/Jasmine shape using clip-path */
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     opacity: 0;
-}
-
-@keyframes float-jasmine {
-    0% { transform: translate(0, 0) rotate(0deg) scale(0.5); opacity: 0; }
-    20% { opacity: 0.8; }
-    80% { opacity: 0.8; }
-    100% { transform: translate(var(--x), var(--y)) rotate(360deg) scale(1); opacity: 0; }
-}
-
-/* Sacred Light Beam */
-.hero::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 140%;
-    height: 200%;
-    background: conic-gradient(from 200deg at 50% 0%, transparent 0%, rgba(212, 175, 55, 0.15) 10%, transparent 20%);
-    z-index: 3;
     pointer-events: none;
-    animation: sweepLight 15s infinite alternate ease-in-out;
+    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-@keyframes sweepLight {
-    from { transform: rotate(-5deg); }
-    to { transform: rotate(5deg); }
+/* Petal Colors */
+.petal.red { background: radial-gradient(circle at 30% 30%, #ff5e5e, #d01c1f); }
+.petal.yellow { background: radial-gradient(circle at 30% 30%, #ffd700, #ff8c00); }
+.petal.white { background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0); }
+
+@keyframes flutter-fall {
+    0% {
+        transform: translate(0, -10%) rotate(0deg) rotateY(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    25% { transform: translate(var(--x1), 25vh) rotate(120deg) rotateY(180deg); }
+    50% { transform: translate(var(--x2), 50vh) rotate(240deg) rotateY(360deg); }
+    75% { transform: translate(var(--x1), 75vh) rotate(360deg) rotateY(540deg); }
+    100% {
+        transform: translate(var(--x3), 110vh) rotate(480deg) rotateY(720deg);
+        opacity: 0;
+    }
 }
 
 .hero-img {
@@ -115,23 +107,23 @@ body::before {
     height: 100%;
     object-fit: cover;
     transform: scale(1.05);
-    transition: transform 15s ease-out;
+    transition: transform 10s ease-out;
 }
 
 body.loaded .hero-img {
     transform: scale(1);
 }
 
-/* Corner Mural Accents */
-.hero::before {
+/* Subtle Hero Overlay */
+.hero::after {
     content: "";
     position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 2rem;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 30%, transparent 70%, rgba(0,0,0,0.3));
+    z-index: 3;
     pointer-events: none;
 }
 .intro-overlay {
