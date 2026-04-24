@@ -15,56 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 2. LAYERED PETAL EFFECT
-    const petalBgContainer = document.getElementById('petal-bg');
-    const petalFgContainer = document.getElementById('petal-fg');
+    // 2. MINIMALIST TUMBLING PETAL EFFECT
+    const petalContainer = document.getElementById('petal-container');
 
-    if (petalBgContainer && petalFgContainer) {
-        // Background petals (Small, slow)
-        for (let i = 0; i < 20; i++) {
-            createPetal(petalBgContainer, 'bg');
-        }
-        // Foreground petals (Large, fast)
-        for (let i = 0; i < 8; i++) {
-            createPetal(petalFgContainer, 'fg');
+    if (petalContainer) {
+        const petalCount = 3; // Minimalist: Only 3 petals at a time
+        for (let i = 0; i < petalCount; i++) {
+            createPetal(petalContainer);
         }
     }
 
-    function createPetal(container, layer) {
+    function createPetal(container) {
         const petal = document.createElement('div');
         petal.className = 'petal';
         
-        // Base size based on layer
-        const baseSize = layer === 'fg' ? 40 : 12;
-        const size = Math.random() * baseSize + baseSize;
+        const size = Math.random() * 20 + 25; // Large, intentional petals
         petal.style.width = `${size}px`;
-        petal.style.height = `${size * 1.2}px`;
+        petal.style.height = `${size * 1.1}px`;
         
-        resetPetal(petal, layer);
+        resetPetal(petal);
         container.appendChild(petal);
         
         petal.addEventListener('animationiteration', () => {
-            resetPetal(petal, layer);
+            resetPetal(petal);
         });
     }
 
-    function resetPetal(petal, layer) {
+    function resetPetal(petal) {
         const left = Math.random() * 100;
-        // Speed based on layer
-        const duration = layer === 'fg' ? (Math.random() * 4 + 4) : (Math.random() * 8 + 10);
-        const delay = Math.random() * 5;
+        const duration = Math.random() * 12 + 10; // Very slow and calm
+        const delay = Math.random() * 15; // Spaced out entrance
         
-        const drift1 = (Math.random() - 0.5) * 150;
-        const drift2 = (Math.random() - 0.5) * 200;
-        const drift3 = (Math.random() - 0.5) * 300;
+        const drift1 = (Math.random() - 0.5) * 200;
+        const drift2 = (Math.random() - 0.5) * 300;
+        const drift3 = (Math.random() - 0.5) * 400;
         
         petal.style.setProperty('--drift-1', `${drift1}px`);
         petal.style.setProperty('--drift-2', `${drift2}px`);
         petal.style.setProperty('--drift-3', `${drift3}px`);
         
         petal.style.left = `${left}%`;
-        petal.style.animation = `petal-fall ${duration}s ease-in-out ${delay}s infinite`;
-        petal.style.opacity = layer === 'fg' ? (Math.random() * 0.4 + 0.6) : (Math.random() * 0.3 + 0.2);
+        petal.style.animation = `petal-tumble ${duration}s ease-in-out ${delay}s infinite`;
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {
