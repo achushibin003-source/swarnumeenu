@@ -40,12 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetPetal(petal) {
         const left = Math.random() * 100;
-        const duration = Math.random() * 5 + 5;
+        const duration = Math.random() * 8 + 7; // Slower, more graceful fall
         const delay = Math.random() * 5;
         
+        // Randomize horizontal drift for unique paths
+        const drift1 = (Math.random() - 0.5) * 100;
+        const drift2 = (Math.random() - 0.5) * 150;
+        const drift3 = (Math.random() - 0.5) * 200;
+        
+        petal.style.setProperty('--drift-1', `${drift1}px`);
+        petal.style.setProperty('--drift-2', `${drift2}px`);
+        petal.style.setProperty('--drift-3', `${drift3}px`);
+        
         petal.style.left = `${left}%`;
-        petal.style.animation = `petal-fall ${duration}s linear ${delay}s infinite`;
-        petal.style.opacity = Math.random() * 0.6 + 0.4;
+        petal.style.animation = `petal-fall ${duration}s ease-in-out ${delay}s infinite`;
+        petal.style.opacity = Math.random() * 0.5 + 0.3;
     }
 
     // 3. LAZY LOADING & REVEAL

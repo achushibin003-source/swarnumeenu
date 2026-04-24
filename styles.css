@@ -87,23 +87,23 @@ body::before {
 
 @keyframes petal-fall {
     0% {
-        transform: translate(0, -10%) rotate(0deg) rotateX(0deg);
+        transform: translate(0, -10%) rotate(0deg) rotateX(0deg) rotateY(0deg);
         opacity: 0;
     }
     10% {
         opacity: 1;
     }
     25% {
-        transform: translate(-30px, 25vh) rotate(120deg) rotateX(45deg);
+        transform: translate(var(--drift-1, -30px), 25vh) rotate(120deg) rotateX(45deg) rotateY(30deg);
     }
     50% {
-        transform: translate(50px, 50vh) rotate(240deg) rotateX(-45deg);
+        transform: translate(var(--drift-2, 50px), 50vh) rotate(240deg) rotateX(-45deg) rotateY(-30deg);
     }
     75% {
-        transform: translate(-40px, 75vh) rotate(360deg) rotateX(45deg);
+        transform: translate(var(--drift-1, -40px), 75vh) rotate(360deg) rotateX(45deg) rotateY(30deg);
     }
     100% {
-        transform: translate(120px, 110vh) rotate(540deg) rotateX(0deg);
+        transform: translate(var(--drift-3, 100px), 110vh) rotate(540deg) rotateX(0deg) rotateY(0deg);
         opacity: 0;
     }
 }
