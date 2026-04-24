@@ -27,9 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createPetal() {
         const p = document.createElement('div');
-        const types = ['red', 'yellow', 'white'];
-        const type = types[Math.floor(Math.random() * types.length)];
-        p.className = `petal ${type}`;
+        p.className = 'petal red';
         
         const size = Math.random() * 15 + 10;
         p.style.width = `${size}px`;

@@ -84,10 +84,8 @@ body::before {
     will-change: transform, opacity;
 }
 
-/* Petal Colors */
-.petal.red { background: radial-gradient(circle at 30% 30%, #ff5e5e, #d01c1f); }
-.petal.yellow { background: radial-gradient(circle at 30% 30%, #ffd700, #ff8c00); }
-.petal.white { background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0); }
+/* Petal Color: Deep Red Rose */
+.petal.red { background: radial-gradient(circle at 30% 30%, #ff5e5e, #d01c1f, #8b0000); }
 
 @keyframes flutter-fall {
     0% {
