@@ -67,6 +67,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     overflow: hidden;
     pointer-events: none;
     z-index: 5;
@@ -81,7 +82,7 @@ body::before {
     pointer-events: none;
     filter: blur(0.2px);
     box-shadow: inset -3px -3px 8px rgba(0, 0, 0, 0.4), 2px 5px 10px rgba(0, 0, 0, 0.2);
-    z-index: 15;
+    z-index: 5; /* Keep below intro */
 }
 
 @keyframes petal-fall {
@@ -268,15 +269,7 @@ body.loaded .hero-img {
 
 
 
-/* RE-ADDING PETAL STYLE FOR DYNAMIC JS USE */
-.petal {
-    position: absolute;
-    background: radial-gradient(circle at 30% 30%, #ff5e5e 0%, #d01c1f 40%, #8b0000 100%);
-    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10005;
-}
+
 
 /* HERO SECTION */
 .hero {
