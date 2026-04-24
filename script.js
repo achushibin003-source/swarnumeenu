@@ -15,7 +15,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 3. LAZY LOADING & REVEAL
+    // 2. LAYERED PETAL EFFECT
+    const petalBgContainer = document.getElementById('petal-bg');
+    const petalFgContainer = document.getElementById('petal-fg');
+
+    if (petalBgContainer && petalFgContainer) {
+        // Background petals (Small, slow)
+        for (let i = 0; i < 20; i++) {
+            createPetal(petalBgContainer, 'bg');
+        }
+        // Foreground petals (Large, fast)
+        for (let i = 0; i < 8; i++) {
+            createPetal(petalFgContainer, 'fg');
+        }
+    }
+
+    function createPetal(container, layer) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        
+        // Base size based on layer
+        const baseSize = layer === 'fg' ? 40 : 12;
+        const size = Math.random() * baseSize + baseSize;
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size * 1.2}px`;
+        
+        resetPetal(petal, layer);
+        container.appendChild(petal);
+        
+        petal.addEventListener('animationiteration', () => {
+            resetPetal(petal, layer);
+        });
+    }
+
+    function resetPetal(petal, layer) {
+        const left = Math.random() * 100;
+        // Speed based on layer
+        const duration = layer === 'fg' ? (Math.random() * 4 + 4) : (Math.random() * 8 + 10);
+        const delay = Math.random() * 5;
+        
+        const drift1 = (Math.random() - 0.5) * 150;
+        const drift2 = (Math.random() - 0.5) * 200;
+        const drift3 = (Math.random() - 0.5) * 300;
+        
+        petal.style.setProperty('--drift-1', `${drift1}px`);
+        petal.style.setProperty('--drift-2', `${drift2}px`);
+        petal.style.setProperty('--drift-3', `${drift3}px`);
+        
+        petal.style.left = `${left}%`;
+        petal.style.animation = `petal-fall ${duration}s ease-in-out ${delay}s infinite`;
+        petal.style.opacity = layer === 'fg' ? (Math.random() * 0.4 + 0.6) : (Math.random() * 0.3 + 0.2);
+    }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {
         threshold: 0.1,
