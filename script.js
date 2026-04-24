@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         p.style.setProperty('--x1', `${x1}px`);
         p.style.setProperty('--x2', `${x2}px`);
         p.style.setProperty('--x3', `${x3}px`);
-        p.style.animation = `flutter-fall ${duration}s ease-in-out ${delay}s infinite`;
+        // Smooth cubic-bezier timing
+        p.style.animation = `flutter-fall ${duration}s cubic-bezier(0.4, 0, 0.2, 1) ${delay}s infinite`;
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {

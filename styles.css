@@ -79,7 +79,8 @@ body::before {
     opacity: 0;
     pointer-events: none;
     border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    will-change: transform, opacity;
 }
 
 /* Petal Colors */
@@ -89,13 +90,16 @@ body::before {
 
 @keyframes flutter-fall {
     0% {
-        transform: translate(0, -10%) rotate(0deg) rotateY(0deg);
+        transform: translate(0, -10vh) rotate(0deg) rotateY(0deg);
         opacity: 0;
     }
-    10% { opacity: 1; }
-    25% { transform: translate(var(--x1), 25vh) rotate(120deg) rotateY(180deg); }
-    50% { transform: translate(var(--x2), 50vh) rotate(240deg) rotateY(360deg); }
-    75% { transform: translate(var(--x1), 75vh) rotate(360deg) rotateY(540deg); }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--x2), 50vh) rotate(240deg) rotateY(360deg);
+        opacity: 0.8;
+    }
     100% {
         transform: translate(var(--x3), 110vh) rotate(480deg) rotateY(720deg);
         opacity: 0;
