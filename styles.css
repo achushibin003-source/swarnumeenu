@@ -61,48 +61,21 @@ body::before {
 }
 
 
-/* TRADITIONAL MULTI-COLOR PETAL SHOWER */
-.flower-container {
+/* 3D GOLDEN PARTICLES CANVAS */
+#hero-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     pointer-events: none;
     z-index: 5;
-    perspective: 1000px;
 }
 
-.petal {
-    position: absolute;
-    top: -10vh; /* Start off-screen at the top */
-    opacity: 0;
-    pointer-events: none;
-    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-    will-change: transform, opacity;
-}
-
-/* Petal Color: Deep Red Rose */
-.petal.red { background: radial-gradient(circle at 30% 30%, #ff5e5e, #d01c1f, #8b0000); }
-
-@keyframes flutter-fall {
-    0% {
-        transform: translate(0, -10vh) rotate(0deg) rotateY(0deg);
-        opacity: 0;
-    }
-    15% {
-        opacity: 1;
-    }
-    50% {
-        transform: translate(var(--x2), 50vh) rotate(240deg) rotateY(360deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(var(--x3), 110vh) rotate(480deg) rotateY(720deg);
-        opacity: 0;
-    }
+/* 3D CONTENT PERSPECTIVE */
+.hero-content {
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
 }
 
 .hero-img {

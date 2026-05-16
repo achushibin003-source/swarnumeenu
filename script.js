@@ -15,47 +15,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 2. TRADITIONAL PETAL SHOWER EFFECT
-    const flowerContainer = document.getElementById('flower-container');
+    // 2. 3D GOLDEN PARTICLES (Classical Smooth Animation)
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 100;
 
-    if (flowerContainer) {
-        const petalCount = 40;
-        for (let i = 0; i < petalCount; i++) {
-            createPetal();
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.z = Math.random() * 1000; // 3D Depth
+                this.size = Math.random() * 2 + 0.5;
+                this.speedZ = -Math.random() * 1.5 - 0.5; // Moving towards viewer
+                this.opacity = 0;
+            }
+
+            update() {
+                this.z += this.speedZ;
+                if (this.z <= 0) this.reset();
+                
+                // 3D Projection
+                const scale = 500 / (500 + this.z);
+                this.screenX = (this.x - canvas.width / 2) * scale + canvas.width / 2;
+                this.screenY = (this.y - canvas.height / 2) * scale + canvas.height / 2;
+                this.renderSize = this.size * scale;
+                
+                if (this.z < 800) {
+                    this.opacity = Math.min(1, (800 - this.z) / 400);
+                } else {
+                    this.opacity = 0;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.screenX, this.screenY, this.renderSize, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity * 0.6})`;
+                ctx.fill();
+                // Add glow
+                if (this.renderSize > 1) {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#D4AF37';
+                } else {
+                    ctx.shadowBlur = 0;
+                }
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
     }
 
-    function createPetal() {
-        const p = document.createElement('div');
-        p.className = 'petal red';
-        
-        const size = Math.random() * 15 + 10;
-        p.style.width = `${size}px`;
-        p.style.height = `${size * 1.2}px`;
-        
-        resetPetal(p);
-        flowerContainer.appendChild(p);
-        
-        p.addEventListener('animationiteration', () => {
-            resetPetal(p);
+    // 3. MOUSE PARALLAX (3D Perspective)
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 40;
+            const y = (window.innerHeight / 2 - e.pageY) / 40;
+            heroContent.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg) translateZ(50px)`;
         });
-    }
-
-    function resetPetal(p) {
-        const left = Math.random() * 100;
-        const duration = Math.random() * 5 + 7;
-        const delay = Math.random() * 10;
-        
-        const x1 = (Math.random() - 0.5) * 150;
-        const x2 = (Math.random() - 0.5) * 200;
-        const x3 = (Math.random() - 0.5) * 300;
-        
-        p.style.left = `${left}%`;
-        p.style.setProperty('--x1', `${x1}px`);
-        p.style.setProperty('--x2', `${x2}px`);
-        p.style.setProperty('--x3', `${x3}px`);
-        // Constant speed for smooth falling
-        p.style.animation = `flutter-fall ${duration}s linear ${delay}s infinite`;
     }
     const lazyElements = document.querySelectorAll('[data-lazy]');
     const observerOptions = {

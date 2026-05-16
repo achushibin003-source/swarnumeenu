@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solo Union — An avant-garde Kerala classical solo-wedding photo and video showcase.">
+    <meta name="description"
+        content="Solo Union — An avant-garde Kerala classical solo-wedding photo and video showcase.">
     <title>SWARNU weds MEENU — Kerala Classical Wedding Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=1.5">
 </head>
+
 <body>
     <!-- CLASSICAL DEVOTIONAL INTRO -->
     <div id="intro-overlay" class="intro-overlay">
@@ -18,15 +23,18 @@
             <div class="lamp-container">
                 <div class="lamp-glow"></div>
                 <svg class="nilavilakku" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 140C70 140 85 135 85 130C85 125 70 120 50 120C30 120 15 125 15 130C15 135 30 140 50 140Z" fill="url(#lamp_grad)"/>
-                    <path d="M45 120H55L52 50H48L45 120Z" fill="url(#lamp_grad)"/>
-                    <path d="M50 55C75 55 95 48 95 40C95 32 75 25 50 25C25 25 5 32 5 40C5 48 25 55 50 55Z" fill="url(#lamp_grad)"/>
-                    <path d="M48 25C48 25 42 10 50 5C58 10 52 25 52 25H48Z" fill="url(#lamp_grad)"/>
+                    <path
+                        d="M50 140C70 140 85 135 85 130C85 125 70 120 50 120C30 120 15 125 15 130C15 135 30 140 50 140Z"
+                        fill="url(#lamp_grad)" />
+                    <path d="M45 120H55L52 50H48L45 120Z" fill="url(#lamp_grad)" />
+                    <path d="M50 55C75 55 95 48 95 40C95 32 75 25 50 25C25 25 5 32 5 40C5 48 25 55 50 55Z"
+                        fill="url(#lamp_grad)" />
+                    <path d="M48 25C48 25 42 10 50 5C58 10 52 25 52 25H48Z" fill="url(#lamp_grad)" />
                     <defs>
                         <linearGradient id="lamp_grad" x1="50" y1="5" x2="50" y2="140" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#FFD700"/>
-                            <stop offset="0.5" stop-color="#D4AF37"/>
-                            <stop offset="1" stop-color="#8B4513"/>
+                            <stop stop-color="#FFD700" />
+                            <stop offset="0.5" stop-color="#D4AF37" />
+                            <stop offset="1" stop-color="#8B4513" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -45,49 +53,100 @@
     <!-- HERO -->
     <section id="hero" class="hero">
 
-        <div id="flower-container" class="flower-container"></div>
+        <!-- 3D GOLDEN PARTICLES -->
+        <canvas id="hero-canvas"></canvas>
         <div class="hero-bg-container">
             <img src="1.jpg" alt="Swarnu Meenu Hero" class="hero-img">
         </div>
         <div class="hero-grain"></div>
         <div class="hero-pond"></div>
         <div class="hero-content">
-            <h1 class="hero-title"><span>SWARNU</span><span class="accent" style="font-family: 'Pinyon Script', cursive; font-size:4rem; margin:0.5rem 0; text-transform:lowercase; color:var(--gold); letter-spacing: normal;">weds</span><span>MEENU</span></h1>
+            <h1 class="hero-title"><span>SWARNU</span><span class="accent"
+                    style="font-family: 'Pinyon Script', cursive; font-size:4rem; margin:0.5rem 0; text-transform:lowercase; color:var(--gold); letter-spacing: normal;">weds</span><span>MEENU</span>
+            </h1>
         </div>
     </section>
 
     <!-- FAMILY -->
     <section id="family" class="sec" data-parallax>
-        <div class="mural-frame"><div class="mural-l"></div><div class="mural-r"></div></div>
+        <div class="mural-frame">
+            <div class="mural-l"></div>
+            <div class="mural-r"></div>
+        </div>
         <div class="sec-inner">
-            <div class="sec-hdr"><span class="sec-num">01</span><h2>The Family</h2><p>Cherished moments with loved ones. The laughter, the blessings, and the deep roots of tradition that bind us together.</p></div>
-            <div class="family-full-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="f-full-item" data-lazy style="background:none;"><img src="family/IMG_20250827_101811195_HDR_PORTRAIT.jpg" alt="Family" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="family/IMG_20250827_104432004_HDR_AE.jpg" alt="Family" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="family/IMG_20250827_104438844_HDR_AE.jpg" alt="Family" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="family/IMG_20250827_104442921_HDR_AE.jpg" alt="Family" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="family/IMG_20250827_104502358_HDR_PORTRAIT.jpg" alt="Family" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+            <div class="sec-hdr"><span class="sec-num">01</span>
+                <h2>The Family</h2>
+                <p>Cherished moments with loved ones. The laughter, the blessings, and the deep roots of tradition that
+                    bind us together.</p>
+            </div>
+            <div class="family-full-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="family/IMG_20250827_101811195_HDR_PORTRAIT.jpg" alt="Family"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="family/IMG_20250827_104432004_HDR_AE.jpg" alt="Family"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="family/IMG_20250827_104438844_HDR_AE.jpg" alt="Family"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="family/IMG_20250827_104442921_HDR_AE.jpg" alt="Family"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="family/IMG_20250827_104502358_HDR_PORTRAIT.jpg" alt="Family"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
             </div>
         </div>
     </section>
 
     <!-- SOLITUDE -->
     <section id="solitude" class="sec" data-parallax>
-        <div class="mural-frame"><div class="mural-l"></div><div class="mural-r"></div></div>
+        <div class="mural-frame">
+            <div class="mural-l"></div>
+            <div class="mural-r"></div>
+        </div>
         <div class="sec-inner">
-            <div class="sec-hdr"><span class="sec-num">02</span><h2>The Solitude</h2><p>In the silence of the temple courtyard, the union begins. No witness but the ancient stones and the flickering lamp.</p></div>
-            <div class="family-full-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100453810_HDR_AE.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100458731_HDR_AE.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100507542_HDR_AE.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100514473_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100631995_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100643394_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_100852210_HDR_AE.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_101150475_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_101155710_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_101209350_HDR_AE.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
-                <div class="f-full-item" data-lazy style="background:none;"><img src="solitude/IMG_20250827_101811195_HDR_PORTRAIT.jpg" alt="Solitude" style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+            <div class="sec-hdr"><span class="sec-num">02</span>
+                <h2>The Solitude</h2>
+                <p>In the silence of the temple courtyard, the union begins. No witness but the ancient stones and the
+                    flickering lamp.</p>
+            </div>
+            <div class="family-full-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100453810_HDR_AE.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100458731_HDR_AE.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100507542_HDR_AE.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100514473_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100631995_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100643394_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_100852210_HDR_AE.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_101150475_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_101155710_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_101209350_HDR_AE.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
+                <div class="f-full-item" data-lazy style="background:none;"><img
+                        src="solitude/IMG_20250827_101811195_HDR_PORTRAIT.jpg" alt="Solitude"
+                        style="width:100%; height:auto; display:block; border:1px solid rgba(212, 175, 55, 0.2);"></div>
             </div>
         </div>
     </section>
@@ -95,263 +154,817 @@
 
     <!-- GALLERY -->
     <section id="gallery" class="sec" data-parallax>
-        <div class="mural-frame"><div class="mural-l"></div><div class="mural-r"></div></div>
+        <div class="mural-frame">
+            <div class="mural-l"></div>
+            <div class="mural-r"></div>
+        </div>
         <div class="sec-inner">
-            <div class="sec-hdr"><span class="sec-num">03</span><h2>The Gallery</h2><p>A collection of moments captured in high-definition stillness.</p></div>
-            <div class="g-filters" style="display:flex; gap:2rem; margin-bottom:3rem; font-family:var(--font-sans); text-transform:uppercase; font-size:0.8rem; letter-spacing:2px;">
-                <button class="g-fil active" data-filter="all" style="background:none; border:none; color:var(--cream); cursor:pointer;">All</button>
-                <button class="g-fil" data-filter="family" style="background:none; border:none; color:var(--cream); cursor:pointer;">Family</button>
-                <button class="g-fil" data-filter="solitude" style="background:none; border:none; color:var(--cream); cursor:pointer;">Solitude</button>
+            <div class="sec-hdr"><span class="sec-num">03</span>
+                <h2>The Gallery</h2>
+                <p>A collection of moments captured in high-definition stillness.</p>
+            </div>
+            <div class="g-filters"
+                style="display:flex; gap:2rem; margin-bottom:3rem; font-family:var(--font-sans); text-transform:uppercase; font-size:0.8rem; letter-spacing:2px;">
+                <button class="g-fil active" data-filter="all"
+                    style="background:none; border:none; color:var(--cream); cursor:pointer;">All</button>
+                <button class="g-fil" data-filter="family"
+                    style="background:none; border:none; color:var(--cream); cursor:pointer;">Family</button>
+                <button class="g-fil" data-filter="solitude"
+                    style="background:none; border:none; color:var(--cream); cursor:pointer;">Solitude</button>
             </div>
             <div class="masonry" id="masonry">
                 <!-- ALL IMAGES -->
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095623.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095708.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095709.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095751.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095757.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095838.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_095849.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_100854.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101050-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101050.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101105.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101130.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101215-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101215.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101748-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101748.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101804.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101808.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101939.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101941.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_101946.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_102011.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_102033-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_102033.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_102525.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104342-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104342.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104429.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104432-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104432.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104458-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104458.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104501.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104623502_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104658016_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104704680_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104733348_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104741.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104741410_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104742.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104748.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104749.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104828.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104850-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104850.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104900.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104903.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104947.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104947658_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_104948.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105015516_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105024550_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105038-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105038-2.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105038.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105040.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105049.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105051-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105051.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105052.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105128.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105220.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105254.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105318655_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105401272_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105420822_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105431.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105454-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105454.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105522.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105534.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105639-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105639.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105641515_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105647.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105656127_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105716526_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105717-1.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105717.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105746.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105757.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105757068_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105813603_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105826039_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105915817_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_105929.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110416.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110428150_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110431527_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110433.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110434054_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110444616_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110447879_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110455.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110500747_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110515139_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110519217_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110543314_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110550772_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110552-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110552.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110626478_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110659849_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110709911_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110720540_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110743415_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110801250_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110830.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110928-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110928.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_110951.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111024-1.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111024.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111147.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111248825_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111254327_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111340586_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111354414_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111409756_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111447590_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111502197_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111513210_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111539829_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111752663_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_111802538_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112144.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112147453_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112255.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112259421_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112306026_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112317524_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112341-1.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112341.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112355-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112355.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112403143_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112436.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112442872_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112447.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112535622_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112548469_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112550.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112607462_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112818055_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112821413_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112953-1.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112953.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_112954007_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113005420_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113010.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113012130_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113014440_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113034092_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113054253_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113100680_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113103076_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113159050_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113202925_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113245497_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113302191_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113309334_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113604253_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113610605_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113617.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113620488_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113625677_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113631.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113649049_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113653246_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113700275_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113703.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113710250_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113814339_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113816.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113817568_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113820270_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_113827591_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114030379_HDR_PORTRAIT (1).jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114030379_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114036048_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114046015_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114100072_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114111042_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114114001_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114150116_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114229356_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_114302239_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_122557.jpg');"></div></div>
-                <div class="m-item m-wide" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_122609.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_122631.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_122649.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_123019.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_123028.jpg');"></div></div>
-                <div class="m-item m-tall" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_123035.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_123054.jpg');"></div></div>
-                <div class="m-item" data-cat="all" data-lazy><div class="m-img" style="background-image: url('images/IMG_20250827_123119.jpg');"></div></div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095623.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095708.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095709.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095751.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095757.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095838.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_095849.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_100854.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101050-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101050.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101105.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101130.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101215-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101215.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101748-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101748.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101804.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101808.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101939.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101941.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_101946.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_102011.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_102033-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_102033.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_102525.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104342-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104342.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104429.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104432-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104432.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104458-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104458.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104501.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104623502_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104658016_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104704680_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104733348_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104741.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104741410_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104742.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104748.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104749.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104828.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104850-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104850.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104900.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104903.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104947.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104947658_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_104948.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105015516_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105024550_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105038-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105038-2.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105038.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105040.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105049.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105051-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105051.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105052.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105128.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105220.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105254.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105318655_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105401272_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105420822_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105431.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105454-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105454.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105522.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105534.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105639-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105639.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105641515_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105647.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105656127_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105716526_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105717-1.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105717.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105746.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105757.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105757068_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105813603_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105826039_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105915817_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_105929.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110416.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110428150_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110431527_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110433.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110434054_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110444616_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110447879_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110455.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110500747_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110515139_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110519217_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110543314_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110550772_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110552-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110552.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110626478_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110659849_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110709911_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110720540_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110743415_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110801250_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110830.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110928-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110928.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_110951.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111024-1.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111024.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111147.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111248825_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111254327_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111340586_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111354414_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111409756_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111447590_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111502197_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111513210_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111539829_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111752663_HDR_AE.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_111802538_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112144.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112147453_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112255.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112259421_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112306026_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112317524_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112341-1.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112341.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112355-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112355.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112403143_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112436.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112442872_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112447.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112535622_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112548469_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112550.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112607462_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112818055_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112821413_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112953-1.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112953.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_112954007_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113005420_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113010.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113012130_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113014440_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113034092_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113054253_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113100680_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113103076_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113159050_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113202925_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113245497_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113302191_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113309334_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113604253_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113610605_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113617.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113620488_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113625677_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113631.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113649049_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113653246_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113700275_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113703.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113710250_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113814339_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113816.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113817568_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113820270_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_113827591_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('images/IMG_20250827_114030379_HDR_PORTRAIT (1).jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114030379_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114036048_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114046015_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114100072_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114111042_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114114001_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114150116_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114229356_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_114302239_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_122557.jpg');"></div>
+                </div>
+                <div class="m-item m-wide" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_122609.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_122631.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_122649.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_123019.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_123028.jpg');"></div>
+                </div>
+                <div class="m-item m-tall" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_123035.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_123054.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="all" data-lazy>
+                    <div class="m-img" style="background-image: url('images/IMG_20250827_123119.jpg');"></div>
+                </div>
 
                 <!-- CATEGORIZED IMAGES -->
-                <div class="m-item" data-cat="family" data-lazy><div class="m-img" style="background-image: url('family/IMG_20250827_101811195_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="family" data-lazy><div class="m-img" style="background-image: url('family/IMG_20250827_104432004_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="family" data-lazy><div class="m-img" style="background-image: url('family/IMG_20250827_104438844_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="family" data-lazy><div class="m-img" style="background-image: url('family/IMG_20250827_104442921_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="family" data-lazy><div class="m-img" style="background-image: url('family/IMG_20250827_104502358_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100453810_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100458731_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100507542_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100514473_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100631995_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100643394_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_100852210_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_101150475_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_101155710_HDR_PORTRAIT.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_101209350_HDR_AE.jpg');"></div></div>
-                <div class="m-item" data-cat="solitude" data-lazy><div class="m-img" style="background-image: url('solitude/IMG_20250827_101811195_HDR_PORTRAIT.jpg');"></div></div>
+                <div class="m-item" data-cat="family" data-lazy>
+                    <div class="m-img" style="background-image: url('family/IMG_20250827_101811195_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="family" data-lazy>
+                    <div class="m-img" style="background-image: url('family/IMG_20250827_104432004_HDR_AE.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="family" data-lazy>
+                    <div class="m-img" style="background-image: url('family/IMG_20250827_104438844_HDR_AE.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="family" data-lazy>
+                    <div class="m-img" style="background-image: url('family/IMG_20250827_104442921_HDR_AE.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="family" data-lazy>
+                    <div class="m-img" style="background-image: url('family/IMG_20250827_104502358_HDR_PORTRAIT.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img" style="background-image: url('solitude/IMG_20250827_100453810_HDR_AE.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img" style="background-image: url('solitude/IMG_20250827_100458731_HDR_AE.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img" style="background-image: url('solitude/IMG_20250827_100507542_HDR_AE.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_100514473_HDR_PORTRAIT.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_100631995_HDR_PORTRAIT.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_100643394_HDR_PORTRAIT.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img" style="background-image: url('solitude/IMG_20250827_100852210_HDR_AE.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_101150475_HDR_PORTRAIT.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_101155710_HDR_PORTRAIT.jpg');"></div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img" style="background-image: url('solitude/IMG_20250827_101209350_HDR_AE.jpg');">
+                    </div>
+                </div>
+                <div class="m-item" data-cat="solitude" data-lazy>
+                    <div class="m-img"
+                        style="background-image: url('solitude/IMG_20250827_101811195_HDR_PORTRAIT.jpg');"></div>
+                </div>
             </div>
         </div>
     </section>
 
 
     <!-- PRIVATE PHOTOS SECTION -->
-    <div style="text-align: center; padding: 6rem 0 2rem; background: linear-gradient(to bottom, transparent, rgba(208, 28, 31, 0.05));">
-        <button id="private-photos-btn" style="background: #D01C1F; color: white; padding: 1.2rem 3rem; border: none; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; box-shadow: 0 10px 30px rgba(208, 28, 31, 0.2); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border: 1px solid rgba(255,255,255,0.1);">Private Photos</button>
+    <div
+        style="text-align: center; padding: 6rem 0 2rem; background: linear-gradient(to bottom, transparent, rgba(208, 28, 31, 0.05));">
+        <button id="private-photos-btn"
+            style="background: #D01C1F; color: white; padding: 1.2rem 3rem; border: none; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; border-radius: 2px; box-shadow: 0 10px 30px rgba(208, 28, 31, 0.2); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); border: 1px solid rgba(255,255,255,0.1);">Private
+            Photos</button>
     </div>
 
-    <footer style="padding: 5rem 5%; border-top: 1px solid rgba(212, 175, 55, 0.1); text-align: center; opacity: 0.8; font-size: 0.9rem;">
+    <footer
+        style="padding: 5rem 5%; border-top: 1px solid rgba(212, 175, 55, 0.1); text-align: center; opacity: 0.8; font-size: 0.9rem;">
         <div style="margin-bottom: 1.5rem;">
-            <a href="https://www.instagram.com/_a_c_h_u_30?igsh=bmxvcHhsb2xxNnk4" target="_blank" aria-label="Instagram" class="insta-link" style="color: var(--gold); display: inline-block; transition: transform 0.3s ease;">
+            <a href="https://www.instagram.com/_a_c_h_u_30?igsh=bmxvcHhsb2xxNnk4" target="_blank" aria-label="Instagram"
+                class="insta-link" style="color: var(--gold); display: inline-block; transition: transform 0.3s ease;">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
             </a>
         </div>
-        <p style="letter-spacing: 3px; font-family: var(--font-sans); text-transform: uppercase; font-size: 0.65rem; opacity: 0.6;">Site created by <span style="color: var(--gold); font-weight: 600; opacity: 1;">achu</span></p>
+        <p
+            style="letter-spacing: 3px; font-family: var(--font-sans); text-transform: uppercase; font-size: 0.65rem; opacity: 0.6;">
+            Site created by <span style="color: var(--gold); font-weight: 600; opacity: 1;">achu</span></p>
     </footer>
     <!-- PRIVATE ACCESS MODAL -->
     <div id="private-modal" class="lightbox" style="z-index: 11000;">
         <button id="private-close" class="lightbox-close">&times;</button>
-        <div class="lightbox-content" style="background: #0d0d0d; padding: 4rem 2rem; border: 1px solid rgba(208, 28, 31, 0.3); text-align: center; max-width: 450px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+        <div class="lightbox-content"
+            style="background: #0d0d0d; padding: 4rem 2rem; border: 1px solid rgba(208, 28, 31, 0.3); text-align: center; max-width: 450px; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
             <div style="width: 50px; height: 1px; background: #D01C1F; margin: 0 auto 2rem;"></div>
-            <h2 style="color: #D01C1F; margin-bottom: 1rem; font-family: var(--font-serif); letter-spacing: 4px;">Private Access</h2>
-            <p style="margin-bottom: 2.5rem; opacity: 0.6; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Protected Collection</p>
-            
-            <input type="password" id="private-pass" placeholder="Enter Access Code" style="width: 100%; padding: 1.2rem; background: #151515; border: 1px solid rgba(255,255,255,0.05); color: white; margin-bottom: 1.5rem; border-radius: 2px; font-family: var(--font-sans); text-align: center; letter-spacing: 2px;">
-            
-            <button id="private-submit" style="background: #D01C1F; color: white; width: 100%; padding: 1.2rem; border: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: opacity 0.3s;">Unlock Collection</button>
-            
-            <p id="private-error" style="color: #D01C1F; font-size: 0.75rem; margin-top: 1.5rem; opacity: 0; transition: opacity 0.3s;">Incorrect access code. Please try again.</p>
+            <h2 style="color: #D01C1F; margin-bottom: 1rem; font-family: var(--font-serif); letter-spacing: 4px;">
+                Private Access</h2>
+            <p
+                style="margin-bottom: 2.5rem; opacity: 0.6; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">
+                Protected Collection</p>
+
+            <input type="password" id="private-pass" placeholder="Enter Access Code"
+                style="width: 100%; padding: 1.2rem; background: #151515; border: 1px solid rgba(255,255,255,0.05); color: white; margin-bottom: 1.5rem; border-radius: 2px; font-family: var(--font-sans); text-align: center; letter-spacing: 2px;">
+
+            <button id="private-submit"
+                style="background: #D01C1F; color: white; width: 100%; padding: 1.2rem; border: none; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: opacity 0.3s;">Unlock
+                Collection</button>
+
+            <p id="private-error"
+                style="color: #D01C1F; font-size: 0.75rem; margin-top: 1.5rem; opacity: 0; transition: opacity 0.3s;">
+                Incorrect access code. Please try again.</p>
         </div>
     </div>
 
@@ -369,4 +982,5 @@
 
     <script src="script.js?v=1.5"></script>
 </body>
+
 </html>
