@@ -2,16 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. INTRO SEQUENCE
     const introOverlay = document.getElementById('intro-overlay');
     
-    window.addEventListener('load', () => {
-        // Minimum display time for intro (3 seconds)
+    // Hide intro after a minimum of 3 seconds, without waiting for massive image payloads
+    setTimeout(() => {
+        document.body.classList.add('loaded');
         setTimeout(() => {
-            document.body.classList.add('loaded');
-            // Remove overlay from DOM after animation finishes to save resources
-            setTimeout(() => {
-                if (introOverlay) introOverlay.style.display = 'none';
-            }, 1500); 
-        }, 3000);
-    });
+            if (introOverlay) introOverlay.style.display = 'none';
+        }, 1500); 
+    }, 3000);
 
 
 
@@ -110,6 +107,20 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                
+                // Actual lazy loading of image
+                const imgNode = entry.target.querySelector('img') || entry.target.querySelector('.m-img');
+                if (imgNode) {
+                    if (imgNode.hasAttribute('data-bg')) {
+                        imgNode.style.backgroundImage = imgNode.getAttribute('data-bg');
+                        imgNode.removeAttribute('data-bg');
+                    }
+                    if (imgNode.tagName.toLowerCase() === 'img' && imgNode.hasAttribute('data-src')) {
+                        imgNode.src = imgNode.getAttribute('data-src');
+                        imgNode.removeAttribute('data-src');
+                    }
+                }
+
                 lazyObserver.unobserve(entry.target);
             }
         });
@@ -155,16 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
         visibleImages = Array.from(document.querySelectorAll('.m-item'))
             .filter(item => item.style.display !== 'none')
             .map(item => {
-                const bgImg = item.querySelector('.m-img').style.backgroundImage;
-                return bgImg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                const imgNode = item.querySelector('.m-img');
+                const bgImg = imgNode.style.backgroundImage || imgNode.getAttribute('data-bg');
+                return bgImg ? bgImg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1') : '';
             });
     }
 
     masonryItems.forEach(item => {
         item.addEventListener('click', () => {
             updateVisibleImages();
-            const bgImg = item.querySelector('.m-img').style.backgroundImage;
-            const imgSrc = bgImg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+            const imgNode = item.querySelector('.m-img');
+            const bgImg = imgNode.style.backgroundImage || imgNode.getAttribute('data-bg');
+            const imgSrc = bgImg ? bgImg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1') : '';
             currentImgIndex = visibleImages.indexOf(imgSrc);
             
             lightboxImg.src = imgSrc;
