@@ -208,34 +208,4 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = visibleImages[currentImgIndex];
     });
 
-    // 6. PRIVATE ACCESS
-    const privateBtn = document.getElementById('private-photos-btn');
-    const privateModal = document.getElementById('private-modal');
-    const privateClose = document.getElementById('private-close');
-    const privatePass = document.getElementById('private-pass');
-    const privateSubmit = document.getElementById('private-submit');
-    const privateError = document.getElementById('private-error');
-
-    if (privateBtn) {
-        privateBtn.addEventListener('click', () => {
-            privateModal.classList.add('active');
-        });
-    }
-
-    if (privateClose) {
-        privateClose.addEventListener('click', () => {
-            privateModal.classList.remove('active');
-        });
-    }
-
-    if (privateSubmit) {
-        privateSubmit.addEventListener('click', () => {
-            if (privatePass.value === '2708') { // Example code
-                window.location.href = 'all_images.txt'; // Or a dedicated page
-            } else {
-                privateError.style.opacity = '1';
-                setTimeout(() => privateError.style.opacity = '0', 3000);
-            }
-        });
-    }
 });
