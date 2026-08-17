@@ -2,10 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. INTRO SEQUENCE
     const introOverlay = document.getElementById('intro-overlay');
-    setTimeout(() => {
+    let introDismissed = false;
+
+    function dismissIntro() {
+        if (introDismissed) return;
+        introDismissed = true;
         document.body.classList.add('loaded');
-        setTimeout(() => { if (introOverlay) introOverlay.style.display = 'none'; }, 1500);
-    }, 3000);
+        if (introOverlay) {
+            introOverlay.style.opacity = '0';
+            introOverlay.style.pointerEvents = 'none';
+            setTimeout(() => {
+                introOverlay.style.display = 'none';
+            }, 900);
+        }
+    }
+
+    // Auto dismiss after 2 seconds
+    setTimeout(dismissIntro, 2000);
+
+    // Quick skip on user interaction
+    if (introOverlay) {
+        introOverlay.addEventListener('click', dismissIntro);
+    }
+    window.addEventListener('keydown', dismissIntro, { once: true });
+    window.addEventListener('touchstart', dismissIntro, { once: true });
+    window.addEventListener('wheel', dismissIntro, { once: true });
 
     // 2. 3D GOLDEN PARTICLES
     const canvas = document.getElementById('hero-canvas');
@@ -95,11 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('book-next');
     const pageCountEl = document.getElementById('book-page-count');
 
-    if (!masonryData || !bookContainer) return;
+    let images = [];
+    if (masonryData && bookContainer) {
 
     // ── Extract image sources from hidden masonry ──────────────
     const items = masonryData.querySelectorAll('.m-item');
-    let images = [];
     items.forEach(item => {
         const imgNode = item.querySelector('.m-img');
         if (!imgNode) return;
@@ -110,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    if (images.length === 0) return;
+    if (images.length > 0) {
 
     // ── Build spreads: each = { left, right } image sources ───
     const spreads = [];
@@ -420,6 +441,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Init ───────────────────────────────────────────────────
     bookEl.style.display = 'none';
     updateControls();
+
+    } // end if (images.length > 0)
+    } // end if (masonryData && bookContainer)
 
     // ============================================================
     // 5. LIGHTBOX & ORIGINAL QUALITY DOWNLOAD

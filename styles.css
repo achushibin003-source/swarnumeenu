@@ -195,10 +195,24 @@ body.loaded .hero-img { transform: scale(1); }
     .emotional-sub { font-size: 1.1rem; letter-spacing: 1px; padding: 0 1rem; }
 }
 
-body.loaded .intro-overlay { pointer-events: none; transition: visibility 0s 1.5s; }
-body.loaded .intro-bg { transform: scale(0); border-radius: 50%; transition: transform 1.8s cubic-bezier(0.85, 0, 0.15, 1); }
-body.loaded .intro-content { opacity: 0; transform: scale(1.1); filter: blur(15px); transition: all 1.2s cubic-bezier(0.85, 0, 0.15, 1); }
-body.loaded .hero-img { animation: heroImageEntrance 2.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+body.loaded .intro-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+body.loaded .intro-bg {
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+body.loaded .intro-content {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(10px);
+    transition: all 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
 
 @keyframes heroImageEntrance {
     0%   { transform: scale(1.2); filter: brightness(0) blur(20px); }
