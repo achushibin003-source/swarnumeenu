@@ -337,16 +337,40 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
 .mural-l::before { top: -20px; left: -20px; }
 .mural-r::before { bottom: -20px; right: -20px; }
 
-.masonry { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-auto-rows: 200px; gap: 2rem; }
-.m-item { position: relative; overflow: hidden; background: #1a1a1a; transition: transform var(--transition-med); }
-.m-tall { grid-row: span 3; }
-.m-wide { grid-column: span 2; }
-.m-img { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.5s cubic-bezier(0.2,0,0.2,1); }
-.m-item:hover .m-img { transform: scale(1.1); }
-.m-ov { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: opacity 0.5s; }
-.m-item:hover .m-ov { opacity: 1; }
-.m-item::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 0 0 0 0 var(--gold); transition: box-shadow 0.5s ease; pointer-events: none; z-index: 2; }
-.m-item:hover::after { box-shadow: inset 0 0 50px 0 var(--gold-glow); }
+/* Responsive Luxury Gallery Grid */
+.masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+.m-item {
+    position: relative;
+    overflow: hidden;
+    background: #14100c;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    height: 320px;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.m-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+}
+.m-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.m-item:hover .m-img {
+    transform: scale(1.06);
+}
 
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -448,7 +472,8 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
     cursor: pointer;
     border-radius: 2px;
 }
-.f-card-actions {
+.f-card-actions,
+.m-card-actions {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -465,7 +490,9 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
     z-index: 10;
 }
 .family-full-grid .f-full-item:hover .f-card-actions,
-.family-full-grid .f-full-item:focus-within .f-card-actions {
+.family-full-grid .f-full-item:focus-within .f-card-actions,
+.m-item:hover .m-card-actions,
+.m-item:focus-within .m-card-actions {
     opacity: 1;
     transform: translateY(0);
 }
@@ -729,34 +756,6 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
 }
 
 .insta-link:hover { transform: scale(1.2); color: var(--cream); }
-
-/* ================================================
-   VINTAGE PHOTO ALBUM — REALISTIC 3D PAGE FLIP
-   ================================================ */
-
-.vintage-book-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    width: 100%;
-    padding: 0 1rem;
-}
-
-#book-container {
-    width: 100%;
-    max-width: 960px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ── ALBUM ROOT ─────────────────────────────── */
-#photo-album {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
 /* ══════════════════════════════════════════════
    LEATHER COVER

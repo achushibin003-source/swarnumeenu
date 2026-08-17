@@ -107,374 +107,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ============================================================
-    // 4. VINTAGE PHOTO ALBUM — REALISTIC CSS 3D PAGE FLIP
+    // 4. PHOTO GALLERY GRID (NORMAL GRID VIEW)
     // ============================================================
-
     const masonryData = document.getElementById('masonry');
-    const bookContainer = document.getElementById('book-container');
-    const prevBtn = document.getElementById('book-prev');
-    const nextBtn = document.getElementById('book-next');
-    const pageCountEl = document.getElementById('book-page-count');
+    let galleryImages = [];
 
-    let images = [];
-    if (masonryData && bookContainer) {
-
-    // ── Extract image sources from hidden masonry ──────────────
-    const items = masonryData.querySelectorAll('.m-item');
-    items.forEach(item => {
-        const imgNode = item.querySelector('.m-img');
-        if (!imgNode) return;
-        const bg = imgNode.getAttribute('data-bg') || imgNode.style.backgroundImage;
-        if (bg) {
-            const m = bg.match(/url\(['"]?(.*?)['"]?\)/i);
-            if (m && m[1]) images.push(m[1]);
-        }
-    });
-
-    if (images.length > 0) {
-
-    // ── Build spreads: each = { left, right } image sources ───
-    const spreads = [];
-    for (let i = 0; i < images.length; i += 2) {
-        spreads.push({ left: images[i], right: images[i + 1] || null });
-    }
-    const totalSpreads = spreads.length;
-    let currentSpread = -1; // -1 = cover closed
-    let isFlipping = false;
-
-    // ── Build album DOM ────────────────────────────────────────
-    const albumEl = document.createElement('div');
-    albumEl.id = 'photo-album';
-    bookContainer.appendChild(albumEl);
-
-    albumEl.innerHTML = `
-        <!-- ORNATE LEATHER COVER -->
-        <div class="alb-cover-scene" id="alb-cover-scene">
-            <div class="alb-cover" id="alb-cover">
-                <div class="alb-cover-face alb-cover-front">
-                    <div class="alb-c-noise"></div>
-                    <div class="alb-c-border"></div>
-                    <div class="alb-c-corner alb-c-tl"></div>
-                    <div class="alb-c-corner alb-c-tr"></div>
-                    <div class="alb-c-corner alb-c-bl"></div>
-                    <div class="alb-c-corner alb-c-br"></div>
-                    <div class="alb-c-orn alb-c-orn-t">&#10022; &ensp; &#10022; &ensp; &#10022;</div>
-                    <div class="alb-c-monogram">S &#10022; M</div>
-                    <div class="alb-c-rule"></div>
-                    <div class="alb-c-subtitle">Wedding Album</div>
-                    <div class="alb-c-date">27 &middot; August &middot; 2025</div>
-                    <div class="alb-c-orn alb-c-orn-b">&#10022; &ensp; &#10022; &ensp; &#10022;</div>
-                    <div class="alb-c-hint" id="alb-c-hint">Click to Open &#8250;</div>
-                    <div class="alb-spine-strip"></div>
-                </div>
-                <div class="alb-cover-face alb-cover-inside">
-                    <div class="alb-ep-pattern"></div>
-                    <div class="alb-ep-text">
-                        <h3>Swarnu &amp; Meenu</h3>
-                        <div class="alb-ep-rule"></div>
-                        <p>A Story of Two Hearts</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- OPEN BOOK (hidden until cover opens) -->
-        <div class="alb-book" id="alb-book">
-
-            <!-- Left static page -->
-            <div class="alb-page alb-page-left" id="alb-left-pg">
-                <div class="alb-pg-inner">
-                    <div class="alb-photo-mat">
-                        <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
-                        <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
-                        <img class="alb-photo" id="alb-img-left" alt="Wedding photo" />
-                        <div class="alb-mat-actions">
-                            <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
-                            <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
-                        </div>
-                    </div>
-                    <div class="alb-pg-num" id="alb-pn-left"></div>
-                </div>
-                <div class="alb-pg-shade-r"></div>
-            </div>
-
-            <!-- Book spine -->
-            <div class="alb-spine-bar">
-                <div class="alb-spine-line"></div>
-            </div>
-
-            <!-- Right section: underneath page + 3D flipper -->
-            <div class="alb-right-section" id="alb-right-section">
-
-                <!-- New right page revealed during forward flip -->
-                <div class="alb-page alb-page-right alb-underneath" id="alb-underneath-pg">
-                    <div class="alb-pg-inner">
-                        <div class="alb-photo-mat">
-                            <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
-                            <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
-                            <img class="alb-photo" id="alb-img-underneath" alt="Wedding photo" />
-                            <div class="alb-mat-actions">
-                                <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
-                                <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
-                            </div>
-                        </div>
-                        <div class="alb-pg-num" id="alb-pn-underneath"></div>
-                    </div>
-                    <div class="alb-pg-shade-l"></div>
-                </div>
-
-                <!-- 3D Flipper -->
-                <div class="alb-flipper" id="alb-flipper">
-                    <!-- Front face: current right page -->
-                    <div class="alb-flip-face alb-flip-front">
-                        <div class="alb-page alb-page-right">
-                            <div class="alb-pg-inner">
-                                <div class="alb-photo-mat">
-                                    <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
-                                    <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
-                                    <img class="alb-photo" id="alb-img-front" alt="Wedding photo" />
-                                    <div class="alb-mat-actions">
-                                        <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
-                                        <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
-                                    </div>
-                                </div>
-                                <div class="alb-pg-num" id="alb-pn-right"></div>
-                            </div>
-                            <div class="alb-pg-shade-l"></div>
-                            <div class="alb-flip-hover-hint">&#8250; Flip</div>
-                        </div>
-                    </div>
-                    <!-- Back face: next left page content -->
-                    <div class="alb-flip-face alb-flip-back">
-                        <div class="alb-page alb-page-back">
-                            <div class="alb-pg-inner">
-                                <div class="alb-photo-mat">
-                                    <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
-                                    <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
-                                    <img class="alb-photo" id="alb-img-back" alt="Wedding photo" />
-                                    <div class="alb-mat-actions">
-                                        <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
-                                        <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alb-pg-shade-r"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Shadow overlay on left page during flip -->
-            <div class="alb-left-overlay" id="alb-left-overlay"></div>
-
-        </div>
-    `;
-
-    // ── DOM references ─────────────────────────────────────────
-    const coverScene    = document.getElementById('alb-cover-scene');
-    const coverEl       = document.getElementById('alb-cover');
-    const bookEl        = document.getElementById('alb-book');
-    const flipperEl     = document.getElementById('alb-flipper');
-    const imgLeft       = document.getElementById('alb-img-left');
-    const imgFront      = document.getElementById('alb-img-front');
-    const imgBack       = document.getElementById('alb-img-back');
-    const imgUnderneath = document.getElementById('alb-img-underneath');
-    const pnLeft        = document.getElementById('alb-pn-left');
-    const pnRight       = document.getElementById('alb-pn-right');
-    const pnUnderneath  = document.getElementById('alb-pn-underneath');
-    const leftOverlay   = document.getElementById('alb-left-overlay');
-
-    // ── Helpers ────────────────────────────────────────────────
-    function loadImg(el, src) {
-        if (!el) return;
-        el.classList.remove('loaded');
-        if (!src) { el.removeAttribute('src'); return; }
-        el.src = src;
-        if (el.complete && el.naturalWidth > 0) {
-            el.classList.add('loaded');
-        } else {
-            el.onload  = () => el.classList.add('loaded');
-            el.onerror = () => el.classList.add('loaded');
-        }
-    }
-
-    function setPN(el, n) { if (el) el.textContent = (n !== null && n !== undefined) ? String(n) : ''; }
-
-    function setFlipper(deg, animated) {
-        flipperEl.style.transition = animated
-            ? 'transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1.000)'
-            : 'none';
-        flipperEl.style.transform = `rotateY(${deg}deg)`;
-        if (!animated) void flipperEl.offsetWidth; // force reflow
-    }
-
-    // ── Open album ─────────────────────────────────────────────
-    function openAlbum() {
-        if (currentSpread >= 0) return;
-        const hint = document.getElementById('alb-c-hint');
-        if (hint) hint.textContent = 'Opening\u2026';
-        coverEl.classList.add('alb-cover-open');
-
-        setTimeout(() => {
-            coverScene.style.display = 'none';
-            bookEl.style.display = 'flex';
-            currentSpread = 0;
-            renderSpread(currentSpread);
-            // Pre-load next underneath
-            const n1 = spreads[1];
-            if (n1) { loadImg(imgUnderneath, n1.right || n1.left); setPN(pnUnderneath, 4); }
-            updateControls();
-        }, 1150);
-    }
-
-    // ── Render current spread ──────────────────────────────────
-    function renderSpread(idx) {
-        const s = spreads[idx];
-        if (!s) return;
-        loadImg(imgLeft,  s.left);
-        loadImg(imgFront, s.right);
-        setPN(pnLeft,  idx * 2 + 1);
-        setPN(pnRight, s.right ? idx * 2 + 2 : null);
-    }
-
-    // ── Flip NEXT ──────────────────────────────────────────────
-    function flipNext() {
-        if (isFlipping || currentSpread < 0 || currentSpread >= totalSpreads - 1) return;
-        isFlipping = true;
-
-        const next = currentSpread + 1;
-        const ns   = spreads[next];
-
-        // Back face = next left page
-        loadImg(imgBack, ns.left);
-        // Underneath = next right page (pre-loaded but set explicitly too)
-        loadImg(imgUnderneath, ns.right);
-        setPN(pnUnderneath, ns.right ? next * 2 + 2 : null);
-
-        // Darken left page as page folds over it
-        leftOverlay.classList.add('alb-overlay-active');
-
-        // ── Animate 0° → -180° ──
-        setFlipper(-180, true);
-
-        setTimeout(() => {
-            currentSpread = next;
-
-            // Sync left static page to new left
-            loadImg(imgLeft, ns.left);
-            setPN(pnLeft, next * 2 + 1);
-
-            // Sync front face for next flip cycle
-            loadImg(imgFront, ns.right);
-            setPN(pnRight, ns.right ? next * 2 + 2 : null);
-
-            // Pre-load the following spread's right (underneath) page
-            const nn = spreads[next + 1];
-            if (nn) { loadImg(imgUnderneath, nn.right || nn.left); }
-
-            // Reset flipper silently (instant, no animation)
-            setFlipper(0, false);
-            leftOverlay.classList.remove('alb-overlay-active');
-            isFlipping = false;
-            updateControls();
-        }, 900);
-    }
-
-    // ── Flip PREV ──────────────────────────────────────────────
-    function flipPrev() {
-        if (isFlipping || currentSpread <= 0) return;
-        isFlipping = true;
-
-        const prev = currentSpread - 1;
-        const ps   = spreads[prev];
-        const cs   = spreads[currentSpread];
-
-        // Set up faces before jumping flipper
-        loadImg(imgFront, ps.right);           // front = prev right
-        loadImg(imgBack,  cs.left);            // back  = current left (visible at -180)
-        loadImg(imgUnderneath, cs.right);      // underneath = current right (visible at -180)
-        loadImg(imgLeft, ps.left);             // left static = prev left (will be revealed)
-        setPN(pnLeft, prev * 2 + 1);
-
-        // Jump to -180° instantly
-        setFlipper(-180, false);
-        leftOverlay.classList.add('alb-overlay-active');
-
-        // Animate -180° → 0°
-        setTimeout(() => {
-            setFlipper(0, true);
-
-            setTimeout(() => {
-                currentSpread = prev;
-                loadImg(imgFront, ps.right);
-                setPN(pnRight, ps.right ? prev * 2 + 2 : null);
-                leftOverlay.classList.remove('alb-overlay-active');
-                isFlipping = false;
-                updateControls();
-            }, 900);
-        }, 30);
-    }
-
-    const bookDownloadCurBtn = document.getElementById('book-download-cur');
-
-    // ── Update control state ───────────────────────────────────
-    function updateControls() {
-        if (pageCountEl) {
-            if (currentSpread < 0) {
-                pageCountEl.textContent = 'Click cover to open';
-                if (bookDownloadCurBtn) bookDownloadCurBtn.style.display = 'none';
-            } else {
-                const from = currentSpread * 2 + 1;
-                const to   = currentSpread * 2 + (spreads[currentSpread].right ? 2 : 1);
-                pageCountEl.textContent = `Pages ${from}–${to} · Spread ${currentSpread + 1} of ${totalSpreads}`;
-                if (bookDownloadCurBtn) bookDownloadCurBtn.style.display = 'inline-flex';
+    if (masonryData) {
+        const items = masonryData.querySelectorAll('.m-item');
+        items.forEach((item, i) => {
+            const imgNode = item.querySelector('.m-img');
+            let src = '';
+            if (imgNode) {
+                const bg = imgNode.getAttribute('data-bg') || imgNode.style.backgroundImage;
+                if (bg) {
+                    const m = bg.match(/url\(['"]?(.*?)['"]?\)/i);
+                    if (m && m[1]) src = m[1];
+                }
             }
-        }
-        if (prevBtn) prevBtn.disabled = currentSpread <= 0;
-        if (nextBtn) nextBtn.disabled = currentSpread >= totalSpreads - 1;
-    }
+            if (src) galleryImages.push(src);
 
-    if (bookDownloadCurBtn) {
-        bookDownloadCurBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (currentSpread >= 0 && spreads[currentSpread]) {
-                const s = spreads[currentSpread];
-                const targetUrl = s.right || s.left;
-                if (targetUrl) downloadOriginalPhoto(targetUrl, bookDownloadCurBtn);
-            }
+            // Add action overlay (Download HD & Expand)
+            const actions = document.createElement('div');
+            actions.className = 'm-card-actions';
+            actions.innerHTML = `
+                <button type="button" class="card-act-btn card-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
+                <button type="button" class="card-act-btn card-act-expand" title="Expand Photo">⤢ Expand</button>
+            `;
+            item.appendChild(actions);
+
+            actions.querySelector('.card-act-download').addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (src) downloadOriginalPhoto(src, e.currentTarget);
+            });
+            actions.querySelector('.card-act-expand').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(galleryImages, i);
+            });
+
+            item.addEventListener('click', (e) => {
+                if (e.target.closest('.card-act-btn')) return;
+                e.stopPropagation();
+                openLightbox(galleryImages, i);
+            });
         });
     }
-
-    // ── Event listeners ────────────────────────────────────────
-    coverEl.addEventListener('click', openAlbum);
-
-    flipperEl.addEventListener('click', (e) => {
-        // Only flip if not clicking an action button inside the mat
-        if (e.target.closest('.alb-mat-actions')) return;
-        if (!isFlipping && currentSpread >= 0) flipNext();
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', flipPrev);
-    if (nextBtn) nextBtn.addEventListener('click', flipNext);
-
-    // Arrow key navigation (when gallery is visible)
-    document.addEventListener('keydown', e => {
-        if (currentSpread < 0) return;
-        const sec = document.getElementById('gallery');
-        const r   = sec ? sec.getBoundingClientRect() : null;
-        if (r && r.top < window.innerHeight && r.bottom > 0) {
-            if (e.key === 'ArrowRight') flipNext();
-            if (e.key === 'ArrowLeft')  flipPrev();
-        }
-    });
-
-    // ── Init ───────────────────────────────────────────────────
-    bookEl.style.display = 'none';
-    updateControls();
-
-    } // end if (images.length > 0)
-    } // end if (masonryData && bookContainer)
 
     // ============================================================
     // 5. LIGHTBOX & ORIGINAL QUALITY DOWNLOAD
@@ -663,44 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             openLightbox(solitudeImgs, i);
         });
-    });
-
-    // Attach click listeners to Album photos and Mat Actions
-    document.addEventListener('click', (e) => {
-        const dlBtn = e.target.closest('.alb-act-download');
-        if (dlBtn) {
-            e.stopPropagation();
-            const mat = dlBtn.closest('.alb-photo-mat');
-            const clickedImg = mat ? mat.querySelector('img') : null;
-            if (clickedImg && clickedImg.getAttribute('src')) {
-                downloadOriginalPhoto(clickedImg.getAttribute('src'), dlBtn);
-            }
-            return;
-        }
-
-        const expBtn = e.target.closest('.alb-act-expand');
-        if (expBtn) {
-            e.stopPropagation();
-            const mat = expBtn.closest('.alb-photo-mat');
-            const clickedImg = mat ? mat.querySelector('img') : null;
-            if (clickedImg && clickedImg.getAttribute('src')) {
-                const src = clickedImg.getAttribute('src');
-                const idx = images.indexOf(src) >= 0 ? images.indexOf(src) : 0;
-                openLightbox(images, idx);
-            }
-            return;
-        }
-
-        const mat = e.target.closest('.alb-photo-mat');
-        if (mat && bookEl.style.display !== 'none') {
-            const clickedImg = mat.querySelector('img');
-            if (clickedImg && clickedImg.getAttribute('src')) {
-                const src = clickedImg.getAttribute('src');
-                const idx = images.indexOf(src) >= 0 ? images.indexOf(src) : 0;
-                e.stopPropagation();
-                openLightbox(images, idx);
-            }
-        }
     });
 
     // Lightbox Controls
