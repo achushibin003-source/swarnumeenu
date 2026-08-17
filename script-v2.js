@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flipperEl.style.transition = animated
             ? 'transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1.000)'
             : 'none';
-        flipperEl.style.transform = \`rotateY(\${deg}deg)\`;
+        flipperEl.style.transform = `rotateY(${deg}deg)`;
         if (!animated) void flipperEl.offsetWidth; // force reflow
     }
 
