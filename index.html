@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.5">
+    <link rel="stylesheet" href="styles.css?v=1.6">
 </head>
 
 <body>
@@ -163,16 +163,18 @@
                 <h2>The Gallery</h2>
                 <p>A collection of moments captured in high-definition stillness.</p>
             </div>
-            <div class="g-filters"
-                style="display:flex; gap:2rem; margin-bottom:3rem; font-family:var(--font-sans); text-transform:uppercase; font-size:0.8rem; letter-spacing:2px;">
-                <button class="g-fil active" data-filter="all"
-                    style="background:none; border:none; color:var(--cream); cursor:pointer;">All</button>
-                <button class="g-fil" data-filter="family"
-                    style="background:none; border:none; color:var(--cream); cursor:pointer;">Family</button>
-                <button class="g-fil" data-filter="solitude"
-                    style="background:none; border:none; color:var(--cream); cursor:pointer;">Solitude</button>
+            <!-- Vintage Book Album -->
+            <div class="vintage-book-container">
+                <div id="book-container"></div>
             </div>
-            <div class="masonry" id="masonry">
+            <div class="vintage-book-controls">
+                <button id="book-prev">&larr; Prev</button>
+                <span id="book-page-count">Click cover to open</span>
+                <button id="book-next">Next &rarr;</button>
+            </div>
+            
+            <!-- Hidden Masonry (Used as data source for the book) -->
+            <div class="masonry" id="masonry" style="display: none;">
                 <!-- ALL IMAGES -->
                 <div class="m-item m-tall" data-cat="all" data-lazy>
                     <div class="m-img" data-bg="url('images/IMG_20250827_095623.jpg')"></div>
@@ -938,18 +940,42 @@
 
 
     <!-- LIGHTBOX -->
-    <div id="lightbox" class="lightbox">
-        <button id="lightbox-close" class="lightbox-close">&times;</button>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Full Size Image">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+        <div class="lightbox-topbar">
+            <div id="lightbox-counter" class="lightbox-counter">1 / 1</div>
+            <div class="lightbox-actions">
+                <button id="lightbox-download" class="lightbox-btn lightbox-download-btn" title="Download original full quality photo" aria-label="Download original photo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download HD</span>
+                </button>
+                <button id="lightbox-close" class="lightbox-btn lightbox-close-btn" title="Close (Esc)" aria-label="Close lightbox">&times;</button>
+            </div>
         </div>
-        <div class="lightbox-nav">
-            <button id="lightbox-prev" class="nav-btn">&larr; Previous</button>
-            <button id="lightbox-next" class="nav-btn">Next &rarr;</button>
+        <div class="lightbox-content">
+            <button id="lightbox-prev" class="lightbox-arrow lightbox-arrow-prev" aria-label="Previous image">&#10094;</button>
+            <div class="lightbox-img-container">
+                <img id="lightbox-img" src="" alt="Full Size Image">
+            </div>
+            <button id="lightbox-next" class="lightbox-arrow lightbox-arrow-next" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="lightbox-bottom-bar">
+            <button id="lightbox-prev-btn" class="nav-btn">&larr; Prev</button>
+            <button id="lightbox-download-bottom" class="nav-btn download-highlight-btn" aria-label="Download original photo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:6px;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg><span>Download Original</span>
+            </button>
+            <button id="lightbox-next-btn" class="nav-btn">Next &rarr;</button>
         </div>
     </div>
 
-    <script src="script.js?v=1.5"></script>
+    <script src="script-v2.js?v=2.2"></script>
 </body>
 
 </html>
