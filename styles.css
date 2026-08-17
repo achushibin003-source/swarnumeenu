@@ -441,22 +441,155 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     transform: translateY(-1px);
 }
-.lightbox-download-btn {
-    padding: 8px 18px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+/* Photo grid item cards & hover action overlays */
+.family-full-grid .f-full-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.f-card-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 10px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 10;
+}
+.family-full-grid .f-full-item:hover .f-card-actions,
+.family-full-grid .f-full-item:focus-within .f-card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card-act-btn {
+    background: rgba(15, 12, 8, 0.85);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 7px 14px;
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    letter-spacing: 1px;
     text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    font-weight: 600;
+}
+.card-act-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    transform: translateY(-2px);
+}
+.card-act-download {
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+.card-act-download:hover {
+    background: #f0cb64;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+/* Album photo mat actions */
+.alb-photo-mat {
+    position: relative;
+}
+.alb-mat-actions {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+.alb-photo-mat:hover .alb-mat-actions {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+.alb-act-btn {
+    background: rgba(10, 8, 6, 0.92);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-family: var(--font-sans);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.alb-act-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+}
+.alb-act-download {
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+}
+.alb-act-download:hover {
+    background: #f0cb64;
+}
+
+/* Lightbox Actions & Buttons */
+.lightbox-download-btn {
+    background: linear-gradient(135deg, #d4af37, #f7e49a, #d4af37) !important;
+    color: #0b0907 !important;
+    border: 1px solid #ffe89e !important;
+    padding: 10px 22px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6) !important;
+    animation: goldPulse 3s infinite alternate;
+}
+@keyframes goldPulse {
+    0% { box-shadow: 0 0 12px rgba(212, 175, 55, 0.4); }
+    100% { box-shadow: 0 0 28px rgba(212, 175, 55, 0.9); }
+}
+.lightbox-download-btn:hover {
+    background: #fff0a8 !important;
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 0 35px rgba(212, 175, 55, 1) !important;
 }
 .lightbox-download-btn.downloading {
     opacity: 0.8;
     pointer-events: none;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.3) !important;
+    color: var(--gold) !important;
 }
 .lightbox-close-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 2.2rem;
     line-height: 1;
     border-radius: 50%;
     padding: 0;
@@ -553,14 +686,17 @@ body.loaded .hero-img { animation: heroImageEntrance 2s cubic-bezier(0.165, 0.84
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 .download-highlight-btn {
-    border-color: var(--gold);
-    background: rgba(212, 175, 55, 0.15);
-    color: var(--gold);
-    font-weight: 600;
+    background: linear-gradient(135deg, #d4af37, #f7e49a) !important;
+    color: #0b0907 !important;
+    border: 1px solid #ffe89e !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.5) !important;
 }
 .download-highlight-btn:hover {
-    background: var(--gold);
-    color: var(--black);
+    background: #fff0a8 !important;
+    color: var(--black) !important;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.9) !important;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {

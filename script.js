@@ -188,6 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
                         <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
                         <img class="alb-photo" id="alb-img-left" alt="Wedding photo" />
+                        <div class="alb-mat-actions">
+                            <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
+                            <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
+                        </div>
                     </div>
                     <div class="alb-pg-num" id="alb-pn-left"></div>
                 </div>
@@ -209,6 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
                             <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
                             <img class="alb-photo" id="alb-img-underneath" alt="Wedding photo" />
+                            <div class="alb-mat-actions">
+                                <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
+                                <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
+                            </div>
                         </div>
                         <div class="alb-pg-num" id="alb-pn-underneath"></div>
                     </div>
@@ -225,6 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
                                     <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
                                     <img class="alb-photo" id="alb-img-front" alt="Wedding photo" />
+                                    <div class="alb-mat-actions">
+                                        <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
+                                        <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
+                                    </div>
                                 </div>
                                 <div class="alb-pg-num" id="alb-pn-right"></div>
                             </div>
@@ -240,6 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <div class="alb-ch alb-ch-tl"></div><div class="alb-ch alb-ch-tr"></div>
                                     <div class="alb-ch alb-ch-bl"></div><div class="alb-ch alb-ch-br"></div>
                                     <img class="alb-photo" id="alb-img-back" alt="Wedding photo" />
+                                    <div class="alb-mat-actions">
+                                        <button type="button" class="alb-act-btn alb-act-download" title="Download Full Quality HD Photo">⬇ Download HD</button>
+                                        <button type="button" class="alb-act-btn alb-act-expand" title="Expand Fullscreen">⤢ Expand</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="alb-pg-shade-r"></div>
@@ -381,18 +397,16 @@ document.addEventListener('DOMContentLoaded', () => {
         loadImg(imgLeft, ps.left);             // left static = prev left (will be revealed)
         setPN(pnLeft, prev * 2 + 1);
 
-        // Jump to -180° instantly — visually matches current state
+        // Jump to -180° instantly
         setFlipper(-180, false);
-
         leftOverlay.classList.add('alb-overlay-active');
 
-        // ── Animate -180° → 0° ──
+        // Animate -180° → 0°
         setTimeout(() => {
             setFlipper(0, true);
 
             setTimeout(() => {
                 currentSpread = prev;
-                // Final sync: ensure front face & page number are correct
                 loadImg(imgFront, ps.right);
                 setPN(pnRight, ps.right ? prev * 2 + 2 : null);
                 leftOverlay.classList.remove('alb-overlay-active');
@@ -402,25 +416,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 30);
     }
 
+    const bookDownloadCurBtn = document.getElementById('book-download-cur');
+
     // ── Update control state ───────────────────────────────────
     function updateControls() {
         if (pageCountEl) {
             if (currentSpread < 0) {
                 pageCountEl.textContent = 'Click cover to open';
+                if (bookDownloadCurBtn) bookDownloadCurBtn.style.display = 'none';
             } else {
                 const from = currentSpread * 2 + 1;
                 const to   = currentSpread * 2 + (spreads[currentSpread].right ? 2 : 1);
-                pageCountEl.textContent = \`Pages \${from}–\${to} · Spread \${currentSpread + 1} of \${totalSpreads}\`;
+                pageCountEl.textContent = `Pages ${from}–${to} · Spread ${currentSpread + 1} of ${totalSpreads}`;
+                if (bookDownloadCurBtn) bookDownloadCurBtn.style.display = 'inline-flex';
             }
         }
         if (prevBtn) prevBtn.disabled = currentSpread <= 0;
         if (nextBtn) nextBtn.disabled = currentSpread >= totalSpreads - 1;
     }
 
+    if (bookDownloadCurBtn) {
+        bookDownloadCurBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentSpread >= 0 && spreads[currentSpread]) {
+                const s = spreads[currentSpread];
+                const targetUrl = s.right || s.left;
+                if (targetUrl) downloadOriginalPhoto(targetUrl, bookDownloadCurBtn);
+            }
+        });
+    }
+
     // ── Event listeners ────────────────────────────────────────
     coverEl.addEventListener('click', openAlbum);
 
-    flipperEl.addEventListener('click', () => {
+    flipperEl.addEventListener('click', (e) => {
+        // Only flip if not clicking an action button inside the mat
+        if (e.target.closest('.alb-mat-actions')) return;
         if (!isFlipping && currentSpread >= 0) flipNext();
     });
 
@@ -518,16 +549,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function downloadCurrentImage() {
-        if (!activeGalleryList.length) return;
-        const url = activeGalleryList[currentLightboxIdx];
+    async function downloadOriginalPhoto(url, triggerBtn) {
         if (!url) return;
-
-        const downloadBtns = [lightboxDownload, lightboxDownloadBottom].filter(Boolean);
-        downloadBtns.forEach(btn => {
+        const btns = [triggerBtn, lightboxDownload, lightboxDownloadBottom].filter(Boolean);
+        btns.forEach(btn => {
             btn.classList.add('downloading');
-            const span = btn.querySelector('span');
-            if (span) span.textContent = 'Downloading...';
+            const span = btn.querySelector('span') || btn;
+            btn.dataset.origText = span.textContent;
+            span.textContent = 'Downloading...';
         });
 
         const filename = url.split('/').pop().split('?')[0] || 'photo.jpg';
@@ -546,12 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(link);
             setTimeout(() => window.URL.revokeObjectURL(blobUrl), 3000);
 
-            downloadBtns.forEach(btn => {
+            btns.forEach(btn => {
                 btn.classList.remove('downloading');
-                const span = btn.querySelector('span');
-                if (span) span.textContent = 'Downloaded!';
+                const span = btn.querySelector('span') || btn;
+                span.textContent = '✓ Downloaded!';
                 setTimeout(() => {
-                    if (span) span.textContent = btn === lightboxDownload ? 'Download HD' : 'Download Original';
+                    span.textContent = btn.dataset.origText || 'Download HD';
                 }, 2000);
             });
         } catch (err) {
@@ -564,34 +593,104 @@ document.addEventListener('DOMContentLoaded', () => {
             link.click();
             document.body.removeChild(link);
 
-            downloadBtns.forEach(btn => {
+            btns.forEach(btn => {
                 btn.classList.remove('downloading');
-                const span = btn.querySelector('span');
-                if (span) span.textContent = btn === lightboxDownload ? 'Download HD' : 'Download Original';
+                const span = btn.querySelector('span') || btn;
+                span.textContent = btn.dataset.origText || 'Download HD';
             });
         }
     }
 
-    // Attach click listeners to all Family photos
+    async function downloadCurrentImage() {
+        if (!activeGalleryList.length) return;
+        const url = activeGalleryList[currentLightboxIdx];
+        if (url) downloadOriginalPhoto(url, lightboxDownload);
+    }
+
+    // Attach click listeners & action overlays to all Family photos
     const familyImgs = Array.from(document.querySelectorAll('#family .family-full-grid img')).map(img => img.getAttribute('src'));
     document.querySelectorAll('#family .family-full-grid .f-full-item').forEach((item, i) => {
+        const img = item.querySelector('img');
+        if (img) {
+            const actions = document.createElement('div');
+            actions.className = 'f-card-actions';
+            actions.innerHTML = `
+                <button type="button" class="card-act-btn card-act-download" title="Download Full Quality HD">⬇ Download HD</button>
+                <button type="button" class="card-act-btn card-act-expand" title="Expand Photo">⤢ Expand</button>
+            `;
+            item.appendChild(actions);
+
+            actions.querySelector('.card-act-download').addEventListener('click', (e) => {
+                e.stopPropagation();
+                downloadOriginalPhoto(img.getAttribute('src'), e.currentTarget);
+            });
+            actions.querySelector('.card-act-expand').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(familyImgs, i);
+            });
+        }
         item.addEventListener('click', (e) => {
+            if (e.target.closest('.card-act-btn')) return;
             e.stopPropagation();
             openLightbox(familyImgs, i);
         });
     });
 
-    // Attach click listeners to all Solitude photos
+    // Attach click listeners & action overlays to all Solitude photos
     const solitudeImgs = Array.from(document.querySelectorAll('#solitude .family-full-grid img')).map(img => img.getAttribute('src'));
     document.querySelectorAll('#solitude .family-full-grid .f-full-item').forEach((item, i) => {
+        const img = item.querySelector('img');
+        if (img) {
+            const actions = document.createElement('div');
+            actions.className = 'f-card-actions';
+            actions.innerHTML = `
+                <button type="button" class="card-act-btn card-act-download" title="Download Full Quality HD">⬇ Download HD</button>
+                <button type="button" class="card-act-btn card-act-expand" title="Expand Photo">⤢ Expand</button>
+            `;
+            item.appendChild(actions);
+
+            actions.querySelector('.card-act-download').addEventListener('click', (e) => {
+                e.stopPropagation();
+                downloadOriginalPhoto(img.getAttribute('src'), e.currentTarget);
+            });
+            actions.querySelector('.card-act-expand').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(solitudeImgs, i);
+            });
+        }
         item.addEventListener('click', (e) => {
+            if (e.target.closest('.card-act-btn')) return;
             e.stopPropagation();
             openLightbox(solitudeImgs, i);
         });
     });
 
-    // Attach click listeners to Album photos
+    // Attach click listeners to Album photos and Mat Actions
     document.addEventListener('click', (e) => {
+        const dlBtn = e.target.closest('.alb-act-download');
+        if (dlBtn) {
+            e.stopPropagation();
+            const mat = dlBtn.closest('.alb-photo-mat');
+            const clickedImg = mat ? mat.querySelector('img') : null;
+            if (clickedImg && clickedImg.getAttribute('src')) {
+                downloadOriginalPhoto(clickedImg.getAttribute('src'), dlBtn);
+            }
+            return;
+        }
+
+        const expBtn = e.target.closest('.alb-act-expand');
+        if (expBtn) {
+            e.stopPropagation();
+            const mat = expBtn.closest('.alb-photo-mat');
+            const clickedImg = mat ? mat.querySelector('img') : null;
+            if (clickedImg && clickedImg.getAttribute('src')) {
+                const src = clickedImg.getAttribute('src');
+                const idx = images.indexOf(src) >= 0 ? images.indexOf(src) : 0;
+                openLightbox(images, idx);
+            }
+            return;
+        }
+
         const mat = e.target.closest('.alb-photo-mat');
         if (mat && bookEl.style.display !== 'none') {
             const clickedImg = mat.querySelector('img');

@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=Pinyon+Script&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.7">
+    <link rel="stylesheet" href="styles.css?v=1.8">
 </head>
 
 <body>
@@ -170,6 +170,13 @@
             <div class="vintage-book-controls">
                 <button id="book-prev">&larr; Prev</button>
                 <span id="book-page-count">Click cover to open</span>
+                <button id="book-download-cur" class="nav-btn download-highlight-btn" style="display:none;" title="Download Current Photo in Original Quality">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:5px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg><span>Download Photo</span>
+                </button>
                 <button id="book-next">Next &rarr;</button>
             </div>
             
@@ -975,7 +982,7 @@
         </div>
     </div>
 
-    <script src="script-v2.js?v=2.3"></script>
+    <script src="script-v2.js?v=2.4"></script>
 </body>
 
 </html>
